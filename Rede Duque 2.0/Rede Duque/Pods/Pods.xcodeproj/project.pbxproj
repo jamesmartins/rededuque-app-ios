@@ -1,0 +1,666 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		F783E7E9F8591E6CF73ED67143335F50 /* OneSignalXCFramework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 657B4D7F7B361A2CAED883966F438D9D /* Build configuration list for PBXAggregateTarget "OneSignalXCFramework" */;
+			buildPhases = (
+				97C4B591DA43144ED549676B0FF14C11 /* [CP] Copy XCFrameworks */,
+			);
+			dependencies = (
+			);
+			name = OneSignalXCFramework;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		6414C2B41FBA0B77D746F7E1112F27A8 /* Pods-Rede Duque-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED7FC552F2E32B7FBC1E45BDE50C67D /* Pods-Rede Duque-dummy.m */; };
+		F85B085319BEBDFF0ADB238690FCA655 /* Pods-OneSignalNotificationServiceExtension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DA0C817A38BB58021DE6B144B075D7 /* Pods-OneSignalNotificationServiceExtension-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3E46D5A7BC5079EE7F1FB48A911FAF17 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F783E7E9F8591E6CF73ED67143335F50;
+			remoteInfo = OneSignalXCFramework;
+		};
+		F8DB642FB06518D78D2CCA4C3FF75B19 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F783E7E9F8591E6CF73ED67143335F50;
+			remoteInfo = OneSignalXCFramework;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0ED7FC552F2E32B7FBC1E45BDE50C67D /* Pods-Rede Duque-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Rede Duque-dummy.m"; sourceTree = "<group>"; };
+		0F4035439C54C4A5EC051B527A75F9BC /* Pods-Rede Duque-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Rede Duque-frameworks.sh"; sourceTree = "<group>"; };
+		17BE31DAC51380B1ED180B7D71A57FF4 /* Pods-OneSignalNotificationServiceExtension-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-OneSignalNotificationServiceExtension-acknowledgements.markdown"; sourceTree = "<group>"; };
+		1D42C5F58C7A8A222B1AC5855AB2BC98 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		41EFC0168F7D9E3D18E90E260D0E5008 /* OneSignalCore.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = OneSignalCore.xcframework; path = iOS_SDK/OneSignalSDK/OneSignal_Core/OneSignalCore.xcframework; sourceTree = "<group>"; };
+		4AF3B972C94DFF11700E306F18F01DF3 /* Pods-OneSignalNotificationServiceExtension */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "Pods-OneSignalNotificationServiceExtension"; path = "libPods-OneSignalNotificationServiceExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		907B2E4A768D10C2EF262A885648D173 /* OneSignalXCFramework-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "OneSignalXCFramework-xcframeworks.sh"; sourceTree = "<group>"; };
+		93AE34CC7BDB7E5A22536998F7709A90 /* Pods-Rede Duque-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Rede Duque-acknowledgements.markdown"; sourceTree = "<group>"; };
+		988AE3A3846A92E7331D47044BD7E417 /* OneSignalOutcomes.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = OneSignalOutcomes.xcframework; path = iOS_SDK/OneSignalSDK/OneSignal_Outcomes/OneSignalOutcomes.xcframework; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A08C67BEF661DBE02AC11798B77369AB /* Pods-Rede Duque.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Rede Duque.release.xcconfig"; sourceTree = "<group>"; };
+		A2DA0C817A38BB58021DE6B144B075D7 /* Pods-OneSignalNotificationServiceExtension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-OneSignalNotificationServiceExtension-dummy.m"; sourceTree = "<group>"; };
+		A588FA983F7AAF092AAE539DFF6A35EB /* Pods-Rede Duque.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Rede Duque.debug.xcconfig"; sourceTree = "<group>"; };
+		B791B13CBD27CA567265E2F21E2B0D40 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
+		BAC083DC6D1A62F577F32017FF266DAF /* OneSignalExtension.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = OneSignalExtension.xcframework; path = iOS_SDK/OneSignalSDK/OneSignal_Extension/OneSignalExtension.xcframework; sourceTree = "<group>"; };
+		CA4AB949E23077E9BAA62DE4A373E0BE /* OneSignalXCFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OneSignalXCFramework.debug.xcconfig; sourceTree = "<group>"; };
+		CCF8807396E57E57229DE194173E14A1 /* OneSignalXCFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OneSignalXCFramework.release.xcconfig; sourceTree = "<group>"; };
+		CE29AFF25A28507F8EEB992F5391F771 /* Pods-Rede Duque */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "Pods-Rede Duque"; path = "libPods-Rede Duque.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAF32D46D6F27B0D5C50E3578A3687BD /* Pods-OneSignalNotificationServiceExtension-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-OneSignalNotificationServiceExtension-acknowledgements.plist"; sourceTree = "<group>"; };
+		EAE7A8D89ACA53ADA2E6B7A5ADE8ADC2 /* Pods-Rede Duque-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Rede Duque-acknowledgements.plist"; sourceTree = "<group>"; };
+		F8E18BAFF042F61B8590FFDE5D404002 /* OneSignal.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = OneSignal.xcframework; path = iOS_SDK/OneSignalSDK/OneSignal_XCFramework/OneSignal.xcframework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		13EA83EACE1CB339179330B40AA69DA7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4434951853D60CF8E2FF72C893B7CA1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4276D366F84209A5151297BC13213EDF /* OneSignalXCFramework */ = {
+			isa = PBXGroup;
+			children = (
+				5A2EE44F228938EE46B1C92839CBE831 /* Frameworks */,
+				F3C03C4CF348B722E54EBD645517BE47 /* OneSignalCore */,
+				B646995C4125348C6AC55D72BC5612F9 /* OneSignalExtension */,
+				445896BF5B7116964EB6794572A6BC5B /* OneSignalOutcomes */,
+				9D5CFE1C9A2FF729DDC76CDBE66D73AB /* Support Files */,
+			);
+			name = OneSignalXCFramework;
+			path = OneSignalXCFramework;
+			sourceTree = "<group>";
+		};
+		445896BF5B7116964EB6794572A6BC5B /* OneSignalOutcomes */ = {
+			isa = PBXGroup;
+			children = (
+				731EB7A0FE83CBAF0A2E5D14FE5A43FC /* Frameworks */,
+			);
+			name = OneSignalOutcomes;
+			sourceTree = "<group>";
+		};
+		5A2EE44F228938EE46B1C92839CBE831 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F8E18BAFF042F61B8590FFDE5D404002 /* OneSignal.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		604E30AAD59E454E6412AA5E9B52CEE6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4AF3B972C94DFF11700E306F18F01DF3 /* Pods-OneSignalNotificationServiceExtension */,
+				CE29AFF25A28507F8EEB992F5391F771 /* Pods-Rede Duque */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		731EB7A0FE83CBAF0A2E5D14FE5A43FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				988AE3A3846A92E7331D47044BD7E417 /* OneSignalOutcomes.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		87BA26D2B6A429A3D528CB9B2F700F8D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BAC083DC6D1A62F577F32017FF266DAF /* OneSignalExtension.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		87CB47531454B77EC1D198DE5AF583AD /* Pods-OneSignalNotificationServiceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				17BE31DAC51380B1ED180B7D71A57FF4 /* Pods-OneSignalNotificationServiceExtension-acknowledgements.markdown */,
+				DAF32D46D6F27B0D5C50E3578A3687BD /* Pods-OneSignalNotificationServiceExtension-acknowledgements.plist */,
+				A2DA0C817A38BB58021DE6B144B075D7 /* Pods-OneSignalNotificationServiceExtension-dummy.m */,
+				1D42C5F58C7A8A222B1AC5855AB2BC98 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
+				B791B13CBD27CA567265E2F21E2B0D40 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
+			);
+			name = "Pods-OneSignalNotificationServiceExtension";
+			path = "Target Support Files/Pods-OneSignalNotificationServiceExtension";
+			sourceTree = "<group>";
+		};
+		9B998A7CD243F9EC07C63C4F75A44B7A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				41EFC0168F7D9E3D18E90E260D0E5008 /* OneSignalCore.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9D5CFE1C9A2FF729DDC76CDBE66D73AB /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				907B2E4A768D10C2EF262A885648D173 /* OneSignalXCFramework-xcframeworks.sh */,
+				CA4AB949E23077E9BAA62DE4A373E0BE /* OneSignalXCFramework.debug.xcconfig */,
+				CCF8807396E57E57229DE194173E14A1 /* OneSignalXCFramework.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/OneSignalXCFramework";
+			sourceTree = "<group>";
+		};
+		B243263E2771EAB35C1E574CC2835D28 /* Pods-Rede Duque */ = {
+			isa = PBXGroup;
+			children = (
+				93AE34CC7BDB7E5A22536998F7709A90 /* Pods-Rede Duque-acknowledgements.markdown */,
+				EAE7A8D89ACA53ADA2E6B7A5ADE8ADC2 /* Pods-Rede Duque-acknowledgements.plist */,
+				0ED7FC552F2E32B7FBC1E45BDE50C67D /* Pods-Rede Duque-dummy.m */,
+				0F4035439C54C4A5EC051B527A75F9BC /* Pods-Rede Duque-frameworks.sh */,
+				A588FA983F7AAF092AAE539DFF6A35EB /* Pods-Rede Duque.debug.xcconfig */,
+				A08C67BEF661DBE02AC11798B77369AB /* Pods-Rede Duque.release.xcconfig */,
+			);
+			name = "Pods-Rede Duque";
+			path = "Target Support Files/Pods-Rede Duque";
+			sourceTree = "<group>";
+		};
+		B646995C4125348C6AC55D72BC5612F9 /* OneSignalExtension */ = {
+			isa = PBXGroup;
+			children = (
+				87BA26D2B6A429A3D528CB9B2F700F8D /* Frameworks */,
+			);
+			name = OneSignalExtension;
+			sourceTree = "<group>";
+		};
+		C23384DD9E6A5E7FDDF598A92F3444CB /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				87CB47531454B77EC1D198DE5AF583AD /* Pods-OneSignalNotificationServiceExtension */,
+				B243263E2771EAB35C1E574CC2835D28 /* Pods-Rede Duque */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D89477F20FB1DE18A04690586D7808C4 /* Frameworks */,
+				EC3535B9A79EB7B23CC41B5FEFE6762B /* Pods */,
+				604E30AAD59E454E6412AA5E9B52CEE6 /* Products */,
+				C23384DD9E6A5E7FDDF598A92F3444CB /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D89477F20FB1DE18A04690586D7808C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC3535B9A79EB7B23CC41B5FEFE6762B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4276D366F84209A5151297BC13213EDF /* OneSignalXCFramework */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F3C03C4CF348B722E54EBD645517BE47 /* OneSignalCore */ = {
+			isa = PBXGroup;
+			children = (
+				9B998A7CD243F9EC07C63C4F75A44B7A /* Frameworks */,
+			);
+			name = OneSignalCore;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		6CE67FC9D335AC6F5FFFEFFED5C48819 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACFB08447EC5A3DDBC08D15183129D75 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		6C70D175630D2DDDF3C65756EBBDD06E /* Pods-Rede Duque */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB67B5B151CBC8338D7A5AF647D0EC77 /* Build configuration list for PBXNativeTarget "Pods-Rede Duque" */;
+			buildPhases = (
+				ACFB08447EC5A3DDBC08D15183129D75 /* Headers */,
+				641D111163D92016F655955BE7CA7521 /* Sources */,
+				13EA83EACE1CB339179330B40AA69DA7 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DB531EF64013CF4DE1853903D4BAA53B /* PBXTargetDependency */,
+			);
+			name = "Pods-Rede Duque";
+			productName = "Pods-Rede Duque";
+			productReference = CE29AFF25A28507F8EEB992F5391F771 /* Pods-Rede Duque */;
+			productType = "com.apple.product-type.library.static";
+		};
+		BD0F10574EB554D7E668F50D2A5B77DF /* Pods-OneSignalNotificationServiceExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5814BBFFFEDEF15E6B8CA4B766275EB0 /* Build configuration list for PBXNativeTarget "Pods-OneSignalNotificationServiceExtension" */;
+			buildPhases = (
+				6CE67FC9D335AC6F5FFFEFFED5C48819 /* Headers */,
+				59002EB2FB60D8BC38E72129B42FEC8E /* Sources */,
+				C4434951853D60CF8E2FF72C893B7CA1 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E9EE0D89FB1233D52099C7DADDDBC71E /* PBXTargetDependency */,
+			);
+			name = "Pods-OneSignalNotificationServiceExtension";
+			productName = "Pods-OneSignalNotificationServiceExtension";
+			productReference = 4AF3B972C94DFF11700E306F18F01DF3 /* Pods-OneSignalNotificationServiceExtension */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 604E30AAD59E454E6412AA5E9B52CEE6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F783E7E9F8591E6CF73ED67143335F50 /* OneSignalXCFramework */,
+				BD0F10574EB554D7E668F50D2A5B77DF /* Pods-OneSignalNotificationServiceExtension */,
+				6C70D175630D2DDDF3C65756EBBDD06E /* Pods-Rede Duque */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		97C4B591DA43144ED549676B0FF14C11 /* [CP] Copy XCFrameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/OneSignalXCFramework/OneSignalXCFramework-xcframeworks-input-files.xcfilelist",
+			);
+			name = "[CP] Copy XCFrameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/OneSignalXCFramework/OneSignalXCFramework-xcframeworks-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/OneSignalXCFramework/OneSignalXCFramework-xcframeworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		59002EB2FB60D8BC38E72129B42FEC8E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F85B085319BEBDFF0ADB238690FCA655 /* Pods-OneSignalNotificationServiceExtension-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		641D111163D92016F655955BE7CA7521 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6414C2B41FBA0B77D746F7E1112F27A8 /* Pods-Rede Duque-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DB531EF64013CF4DE1853903D4BAA53B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OneSignalXCFramework;
+			target = F783E7E9F8591E6CF73ED67143335F50 /* OneSignalXCFramework */;
+			targetProxy = 3E46D5A7BC5079EE7F1FB48A911FAF17 /* PBXContainerItemProxy */;
+		};
+		E9EE0D89FB1233D52099C7DADDDBC71E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OneSignalXCFramework;
+			target = F783E7E9F8591E6CF73ED67143335F50 /* OneSignalXCFramework */;
+			targetProxy = F8DB642FB06518D78D2CCA4C3FF75B19 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0D9B3B650A9EE28E7467CEC33F807383 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA4AB949E23077E9BAA62DE4A373E0BE /* OneSignalXCFramework.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2B9E26EAE2CD392AD762421F663075A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		34AEB85D11075E196E1081C769EBC5E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B791B13CBD27CA567265E2F21E2B0D40 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3DE2E6A68CC5A9AACAEFF3B7DE67B8DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A08C67BEF661DBE02AC11798B77369AB /* Pods-Rede Duque.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5FC463B7D26D42CA6F32C596219C7634 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D42C5F58C7A8A222B1AC5855AB2BC98 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		63FAF33E1C55B71A5F5A8B3CC8749F99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		8DA06685788740E6B69226D3E769523C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCF8807396E57E57229DE194173E14A1 /* OneSignalXCFramework.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D8803294AE68D2690799838702C50536 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A588FA983F7AAF092AAE539DFF6A35EB /* Pods-Rede Duque.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B9E26EAE2CD392AD762421F663075A1 /* Debug */,
+				63FAF33E1C55B71A5F5A8B3CC8749F99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5814BBFFFEDEF15E6B8CA4B766275EB0 /* Build configuration list for PBXNativeTarget "Pods-OneSignalNotificationServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FC463B7D26D42CA6F32C596219C7634 /* Debug */,
+				34AEB85D11075E196E1081C769EBC5E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		657B4D7F7B361A2CAED883966F438D9D /* Build configuration list for PBXAggregateTarget "OneSignalXCFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D9B3B650A9EE28E7467CEC33F807383 /* Debug */,
+				8DA06685788740E6B69226D3E769523C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BB67B5B151CBC8338D7A5AF647D0EC77 /* Build configuration list for PBXNativeTarget "Pods-Rede Duque" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8803294AE68D2690799838702C50536 /* Debug */,
+				3DE2E6A68CC5A9AACAEFF3B7DE67B8DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
