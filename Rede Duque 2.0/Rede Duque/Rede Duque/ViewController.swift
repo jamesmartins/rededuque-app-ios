@@ -97,14 +97,17 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate{
         if (webView.url?.description ?? "").contains("novoMenu"){
             
             let url = webView.url!.absoluteString
-            var userID = url.substring(from: url.range(of: "idU=")!.upperBound)
-            userID = userID.replacingOccurrences(of: "&log=1", with: "")
-            userID = userID.removingPercentEncoding ?? userID
-            userID = userID.toBase64()
+            if url.contains("idU=") {
+                var userID = url.substring(from: url.range(of: "idU=")!.upperBound)
+                userID = userID.replacingOccurrences(of: "&log=1", with: "")
+                userID = userID.removingPercentEncoding ?? userID
+                userID = userID.toBase64()
+                
+                print("Logado\nUserID:\(userID)")
+                
+                self.randlerConsultaCli(userID: userID)
+            }
             
-            print("Logado\nUserID:\(userID)")
-            
-            self.randlerConsultaCli(userID: userID)
         } else {
             print("URL: " + (webView.url?.description ?? ""))
         }
@@ -215,10 +218,11 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate{
         
         guard let deviceState = OneSignal.getDeviceState() else {return}
         guard let token = deviceState.pushToken else {return}
+        guard let userId = deviceState.userId else {return}
         
         print(cli)
         
-        let param : [String: Any] = ["RD_userId": cli.rdUserID, "RD_userCompany": cli.rdUserCompany, "RD_userMail": cli.rdUserMail, "RD_userName": cli.rdUserName, "RD_userType":cli.rdUserType, "RD_TokenCelular":token, "RD_Versao":"iOS"]
+        let param : [String: Any] = ["RD_userId": cli.rdUserID, "RD_userCompany": cli.rdUserCompany, "RD_userMail": cli.rdUserMail, "RD_userName": cli.rdUserName, "RD_userType":cli.rdUserType, "RD_TokenCelular":token, "RD_Versao":"iOS", "RD_User_Player_Id" : userId]
         
         print(param)
         

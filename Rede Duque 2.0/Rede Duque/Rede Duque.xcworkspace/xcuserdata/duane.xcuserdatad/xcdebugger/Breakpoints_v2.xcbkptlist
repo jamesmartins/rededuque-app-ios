@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "4254C157-85B7-4A01-B888-E678A6963423"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Rede Duque/Service/Service.swift"
@@ -20,14 +20,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "4254C157-85B7-4A01-B888-E678A6963423 - 18a4d9a06aee4899"
+                  uuid = "4254C157-85B7-4A01-B888-E678A6963423 - 91a502ca66a6fe1a"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Rede_Duque.Service.request&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(_: Swift.String, method: Rede_Duque.HttpMethod, parameters: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, completion: (Swift.Result&lt;&#x3c4;_0_0, Rede_Duque.ErrorTypes&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "Rede Duque"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/duane/Documents/GitHub/rededuque-ios/Rede%20Duque%202.0/Rede%20Duque/Rede%20Duque/Service/Service.swift"
+                  urlString = "file:///Users/duane/Documents/GitHub/rededuque-app-ios/Rede%20Duque%202.0/Rede%20Duque/Rede%20Duque/Service/Service.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "79"
@@ -35,14 +35,14 @@
                   offsetFromSymbolStart = "2580">
                </Location>
                <Location
-                  uuid = "4254C157-85B7-4A01-B888-E678A6963423 - 18a4d9a06aee4899"
+                  uuid = "4254C157-85B7-4A01-B888-E678A6963423 - 91a502ca66a6fe1a"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Rede_Duque.Service.request&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(_: Swift.String, method: Rede_Duque.HttpMethod, parameters: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, completion: (Swift.Result&lt;&#x3c4;_0_0, Rede_Duque.ErrorTypes&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "Rede Duque"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/duane/Documents/GitHub/rededuque-ios/Rede%20Duque%202.0/Rede%20Duque/Rede%20Duque/Service/Service.swift"
+                  urlString = "file:///Users/duane/Documents/GitHub/rededuque-app-ios/Rede%20Duque%202.0/Rede%20Duque/Rede%20Duque/Service/Service.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "79"
