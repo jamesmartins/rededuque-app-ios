@@ -36,9 +36,38 @@ class ViewController: UIViewController {
 
     //MARK: - Setup
     func setupWebView() {
+        
+        // 1: Instantiate WKWebViewConfiguration
+        let configuration = WKWebViewConfiguration()
+        // 2: Clear existing local storage if needed
+        let script = WKUserScript(
+            source: "window.localStorage.clear();",
+            injectionTime: .atDocumentStart,
+            forMainFrameOnly: true
+        )
+        configuration.userContentController.addUserScript(script)
+        
+        // 3: Create your local storage data
+        let localStorageData: [String: Any] = [
+            "key1": "teste1",
+            "key2": "teste2"
+        ]
+        // 4: Transform localStorageData to Data type and instantiate WKUserScript with that data
+        if JSONSerialization.isValidJSONObject(localStorageData),
+            let data = try? JSONSerialization.data(withJSONObject: localStorageData, options: []),
+            let value = String(data: data, encoding: .utf8) {
+            let script = WKUserScript(
+                source: "Object.assign(window.localStorage, \(value));",
+                injectionTime: .atDocumentStart,
+                forMainFrameOnly: true
+            )
+            // 5: Add created WKUserScript variable into the configuration
+            configuration.userContentController.addUserScript(script)
+        }
+        
         webView = WKWebView(
             frame: .zero,
-            configuration: WKWebViewConfiguration()
+            configuration: configuration /*WKWebViewConfiguration()*/
         )
         webView.uiDelegate = self
         webView.navigationDelegate = self
@@ -74,6 +103,10 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate{
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         DispatchQueue.main.async {
             self.indicator.stopAnimating()
+        }
+        
+        webView.evaluateJavaScript("localStorage.getItem(\"key\")") { (value, error) in
+              print(value)
         }
         
         if webView.url != nil {
