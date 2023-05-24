@@ -9,10 +9,13 @@ import UIKit
 import WebKit
 import NVActivityIndicatorView
 import OneSignal
+import LocalAuthentication
 
 class ViewController: UIViewController {
     //MARK: - VARS
-    let appURL = URL(string: "https://adm.bunkerapp.com.br/app/intro.do?key=sgXRkwFYRfk")!
+    static let dev =  false
+    let appURL = URL(string: "https://adm.bunkerapp.com.br/app/intro.do?key=sgXRkwFYRfk\(ViewController.dev ? "&dev=true" : "")")!
+    //let appURL = URL(string: "https://adm.bunkerapp.com.br/app/app.do?key=c2dYUmt3RllSZmvCog==&dev=true")!
     var webView: WKWebView!
     var indicator = NVActivityIndicatorView(frame: .zero)
     
@@ -49,8 +52,9 @@ class ViewController: UIViewController {
         
         // 3: Create your local storage data
         let localStorageData: [String: Any] = [
-            "key1": "teste1",
-            "key2": "teste2"
+            "login": "teste1",
+            "senha": "teste2",
+            "manter": ""
         ]
         // 4: Transform localStorageData to Data type and instantiate WKUserScript with that data
         if JSONSerialization.isValidJSONObject(localStorageData),
@@ -105,10 +109,83 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate{
             self.indicator.stopAnimating()
         }
         
-        webView.evaluateJavaScript("localStorage.getItem(\"key\")") { (value, error) in
-              print(value)
+        
+        
+        let url = webView.url!.absoluteString
+        dump("URL:" + url)
+        
+        if url.contains("app.do") && url.contains("idL="){
+            dump("segunda passagem")
+            
+            let context = LAContext()
+            var error : NSError?
+            
+            if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
+                
+                let reason = "Autentique para realizar o login"
+                context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { success, error in
+                    if success {
+                        DispatchQueue.main.async {
+                            self.indicator.startAnimating()
+                        }
+                        webView.evaluateJavaScript("login()") { anyResult, error in
+                            if error != nil {
+                                DispatchQueue.main.async {
+                                    self.indicator.stopAnimating()
+                                }
+                            }
+                            dump(anyResult ?? "sem retorno")
+                        }
+                    }
+                }
+                
+            } else {
+                dump("autenticação indisponivel")
+            }
+            
+        } else if url.contains("app.do") && !url.contains("idL="){
+
+            dump("primeira passagem")
+            
+            if let idl = get("idL") as? String {
+                
+                webView.stopLoading()
+                let urlString = url+"&"+idl
+                dump("Url modificada:"+urlString)
+                let link = URL(string: urlString)!
+                let request = URLRequest(url:link)
+                webView.load(request)
+            }
+        } else if url.contains("idL=") && !url.contains("app.do") {
+            dump("apos o login")
+            
+            var idL = url.substring(from: url.range(of: "idL=")!.upperBound)
+            idL = "idL="+idL
+            dump("Logado\nidL:\(idL)")
+        
+            set("idL", idL)
+            //self.randlerConsultaCli(userID: userID)
+            
+            let context = LAContext()
+            var error : NSError?
+            
+            if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
+                dump("autenticação ok")
+            } else {
+                dump("autenticação indisponivel")
+            }
+            
+        } else if url.contains("novoMenu") && !url.contains("idL=") {
+            clear("idL")
         }
         
+        dump("fim")
+        
+        /*webView.evaluateJavaScript("localStorage.getItem(\"key\")") { (value, error) in
+              print(value)
+        }*/
+        
+        /*
         if webView.url != nil {
             webView.getCookie { cookies in
                 self.randlerCookies(cookies: cookies)
@@ -126,6 +203,7 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate{
                 }
             }
         }
+        */
         
         if (webView.url?.description ?? "").contains("novoMenu"){
             
@@ -136,13 +214,13 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate{
                 userID = userID.removingPercentEncoding ?? userID
                 userID = userID.toBase64()
                 
-                print("Logado\nUserID:\(userID)")
+                dump("Logado\nUserID:\(userID)")
                 
                 self.randlerConsultaCli(userID: userID)
             }
             
         } else {
-            print("URL: " + (webView.url?.description ?? ""))
+            //print("URL: " + (webView.url?.description ?? ""))
         }
     }
     

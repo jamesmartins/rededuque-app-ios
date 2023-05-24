@@ -55,63 +55,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EC7C4560-89EE-4195-9B84-7C32B94EE97C"
-            shouldBeEnabled = "Yes"
+            uuid = "69A05E77-0DD9-4ADA-A1D5-1F8E8B5619C8"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Rede Duque/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "webView(_:didFinish:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0E41DEB4-2B75-4157-9464-88FB4F0BF88E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Rede Duque/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "setupWebView()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "0E41DEB4-2B75-4157-9464-88FB4F0BF88E - 960b6e48cb60382d"
+                  uuid = "69A05E77-0DD9-4ADA-A1D5-1F8E8B5619C8 - 45536e08147fe1b6"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Rede_Duque.ViewController.setupWebView() -&gt; ()"
+                  symbolName = "Rede_Duque.ViewController.webView(_: __C.WKWebView, didFinish: Swift.Optional&lt;__C.WKNavigation&gt;) -&gt; ()"
                   moduleName = "Rede Duque"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/duane/Documents/GitHub/rededuque-app-ios/Rede%20Duque%202.0/Rede%20Duque/Rede%20Duque/ViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
-                  offsetFromSymbolStart = "1304">
+                  startingLineNumber = "132"
+                  endingLineNumber = "132"
+                  offsetFromSymbolStart = "2928">
                </Location>
                <Location
-                  uuid = "0E41DEB4-2B75-4157-9464-88FB4F0BF88E - 960b6e48cb60382d"
+                  uuid = "69A05E77-0DD9-4ADA-A1D5-1F8E8B5619C8 - 45536e08147fe1b6"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Rede_Duque.ViewController.setupWebView() -&gt; ()"
+                  symbolName = "Rede_Duque.ViewController.webView(_: __C.WKWebView, didFinish: Swift.Optional&lt;__C.WKNavigation&gt;) -&gt; ()"
                   moduleName = "Rede Duque"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/duane/Documents/GitHub/rededuque-app-ios/Rede%20Duque%202.0/Rede%20Duque/Rede%20Duque/ViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
-                  offsetFromSymbolStart = "1399">
+                  startingLineNumber = "132"
+                  endingLineNumber = "132"
+                  offsetFromSymbolStart = "3720">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -119,17 +103,79 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5CF912B6-8577-4F67-AD28-8C2E41C258EF"
-            shouldBeEnabled = "Yes"
+            uuid = "11F00935-A5B8-4AD0-9E23-A673C48EF785"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Rede Duque/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "setupWebView()"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "webView(_:didFinish:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "11F00935-A5B8-4AD0-9E23-A673C48EF785 - 45536e08147fe302"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Rede_Duque.ViewController.webView(_: __C.WKWebView, didFinish: Swift.Optional&lt;__C.WKNavigation&gt;) -&gt; ()"
+                  moduleName = "Rede Duque"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/duane/Documents/GitHub/rededuque-app-ios/Rede%20Duque%202.0/Rede%20Duque/Rede%20Duque/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "2372">
+               </Location>
+               <Location
+                  uuid = "11F00935-A5B8-4AD0-9E23-A673C48EF785 - 45536e08147fe302"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Rede_Duque.ViewController.webView(_: __C.WKWebView, didFinish: Swift.Optional&lt;__C.WKNavigation&gt;) -&gt; ()"
+                  moduleName = "Rede Duque"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/duane/Documents/GitHub/rededuque-app-ios/Rede%20Duque%202.0/Rede%20Duque/Rede%20Duque/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "2316">
+               </Location>
+               <Location
+                  uuid = "11F00935-A5B8-4AD0-9E23-A673C48EF785 - 45536e08147fe302"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Rede_Duque.ViewController.webView(_: __C.WKWebView, didFinish: Swift.Optional&lt;__C.WKNavigation&gt;) -&gt; ()"
+                  moduleName = "Rede Duque"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/duane/Documents/GitHub/rededuque-app-ios/Rede%20Duque%202.0/Rede%20Duque/Rede%20Duque/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "2280">
+               </Location>
+               <Location
+                  uuid = "11F00935-A5B8-4AD0-9E23-A673C48EF785 - 45536e08147fe302"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Rede_Duque.ViewController.webView(_: __C.WKWebView, didFinish: Swift.Optional&lt;__C.WKNavigation&gt;) -&gt; ()"
+                  moduleName = "Rede Duque"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/duane/Documents/GitHub/rededuque-app-ios/Rede%20Duque%202.0/Rede%20Duque/Rede%20Duque/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "2272">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
