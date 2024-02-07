@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "93418CA5-EF4A-4E05-A5F5-90EE959542A5"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2AD8D110-D169-426E-9A1B-483D1F142EA6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Rede Duque/Model/DataInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "login(user:password:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2AD8D110-D169-426E-9A1B-483D1F142EA6 - b5bf1c6e14ce9291"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Rede_Duque.DataInteractor.login(user: Swift.String, password: Swift.String, completion: (Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Rede Duque"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/duane/Desktop/Rede%20Duque/Rede%20Duque/Model/DataInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "420">
+               </Location>
+               <Location
+                  uuid = "2AD8D110-D169-426E-9A1B-483D1F142EA6 - b5bf1c6e14ce92b2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Rede_Duque.DataInteractor.login(user: Swift.String, password: Swift.String, completion: (Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Rede Duque"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/duane/Desktop/Rede%20Duque/Rede%20Duque/Model/DataInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "420">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

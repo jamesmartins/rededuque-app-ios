@@ -1,0 +1,674 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		473D124C2B29DB94008F4FDB /* APIMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473D124B2B29DB94008F4FDB /* APIMain.swift */; };
+		473D124E2B29DDBE008F4FDB /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473D124D2B29DDBE008F4FDB /* APIManager.swift */; };
+		473D12522B29E08B008F4FDB /* DataInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473D12512B29E08B008F4FDB /* DataInteractor.swift */; };
+		475A4B562B2F3239007B6F5C /* OneSignalExtension in Frameworks */ = {isa = PBXBuildFile; productRef = 475A4B552B2F3239007B6F5C /* OneSignalExtension */; };
+		475A4B582B2F3239007B6F5C /* OneSignalFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 475A4B572B2F3239007B6F5C /* OneSignalFramework */; };
+		475A4B5A2B2F3239007B6F5C /* OneSignalInAppMessages in Frameworks */ = {isa = PBXBuildFile; productRef = 475A4B592B2F3239007B6F5C /* OneSignalInAppMessages */; };
+		475A4B5C2B2F3239007B6F5C /* OneSignalLocation in Frameworks */ = {isa = PBXBuildFile; productRef = 475A4B5B2B2F3239007B6F5C /* OneSignalLocation */; };
+		475A4B652B2F338C007B6F5C /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475A4B642B2F338C007B6F5C /* NotificationService.swift */; };
+		475A4B692B2F338C007B6F5C /* OneSignalNotificationServiceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 475A4B622B2F338C007B6F5C /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		475A4B6F2B3079A9007B6F5C /* AuthApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475A4B6E2B3079A9007B6F5C /* AuthApp.swift */; };
+		475A4B712B307BE9007B6F5C /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475A4B702B307BE9007B6F5C /* Links.swift */; };
+		475A4B752B307DFE007B6F5C /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475A4B742B307DFE007B6F5C /* LoadingView.swift */; };
+		475A4B772B30832F007B6F5C /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475A4B762B30832F007B6F5C /* WebView.swift */; };
+		475A4B792B309825007B6F5C /* WebViewDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475A4B782B309825007B6F5C /* WebViewDestination.swift */; };
+		475A4B7B2B30E3B8007B6F5C /* CharacterSet+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475A4B7A2B30E3B8007B6F5C /* CharacterSet+extension.swift */; };
+		47E541832B0AAC7F00829403 /* Rede_DuqueApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E541822B0AAC7F00829403 /* Rede_DuqueApp.swift */; };
+		47E541852B0AAC7F00829403 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E541842B0AAC7F00829403 /* ContentView.swift */; };
+		47E541872B0AAC7F00829403 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47E541862B0AAC7F00829403 /* Assets.xcassets */; };
+		47E5418A2B0AAC7F00829403 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47E541892B0AAC7F00829403 /* Preview Assets.xcassets */; };
+		47E541A02B0AB90C00829403 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47E5419F2B0AB77000829403 /* Roboto-Bold.ttf */; };
+		47E541A12B0AB90F00829403 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47E5419C2B0AB61000829403 /* Roboto-Regular.ttf */; };
+		47E541A22B0AB9C500829403 /* Rede-Duque-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47E5419E2B0AB62D00829403 /* Rede-Duque-Info.plist */; };
+		47E541A42B0ABA6C00829403 /* WebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E541A32B0ABA6C00829403 /* WebViewModel.swift */; };
+		47E541A62B0CF8F000829403 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47E541A52B0CF8F000829403 /* Roboto-Black.ttf */; };
+		47E541A82B0CF94500829403 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E541A72B0CF94500829403 /* LoginView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		475A4B672B2F338C007B6F5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 47E541772B0AAC7F00829403 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 475A4B612B2F338C007B6F5C;
+			remoteInfo = OneSignalNotificationServiceExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		475A4B6D2B2F338C007B6F5C /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				475A4B692B2F338C007B6F5C /* OneSignalNotificationServiceExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		473D124B2B29DB94008F4FDB /* APIMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMain.swift; sourceTree = "<group>"; };
+		473D124D2B29DDBE008F4FDB /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		473D12512B29E08B008F4FDB /* DataInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataInteractor.swift; sourceTree = "<group>"; };
+		475A4B5D2B2F329F007B6F5C /* Rede Duque.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Rede Duque.entitlements"; sourceTree = "<group>"; };
+		475A4B622B2F338C007B6F5C /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		475A4B642B2F338C007B6F5C /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		475A4B662B2F338C007B6F5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		475A4B6E2B3079A9007B6F5C /* AuthApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthApp.swift; sourceTree = "<group>"; };
+		475A4B702B307BE9007B6F5C /* Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
+		475A4B742B307DFE007B6F5C /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		475A4B762B30832F007B6F5C /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		475A4B782B309825007B6F5C /* WebViewDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewDestination.swift; sourceTree = "<group>"; };
+		475A4B7A2B30E3B8007B6F5C /* CharacterSet+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterSet+extension.swift"; sourceTree = "<group>"; };
+		47E5417F2B0AAC7F00829403 /* Rede Duque.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rede Duque.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		47E541822B0AAC7F00829403 /* Rede_DuqueApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rede_DuqueApp.swift; sourceTree = "<group>"; };
+		47E541842B0AAC7F00829403 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		47E541862B0AAC7F00829403 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		47E541892B0AAC7F00829403 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		47E5419C2B0AB61000829403 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		47E5419E2B0AB62D00829403 /* Rede-Duque-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Rede-Duque-Info.plist"; sourceTree = SOURCE_ROOT; };
+		47E5419F2B0AB77000829403 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		47E541A32B0ABA6C00829403 /* WebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
+		47E541A52B0CF8F000829403 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		47E541A72B0CF94500829403 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		475A4B5F2B2F338C007B6F5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47E5417C2B0AAC7F00829403 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				475A4B5A2B2F3239007B6F5C /* OneSignalInAppMessages in Frameworks */,
+				475A4B582B2F3239007B6F5C /* OneSignalFramework in Frameworks */,
+				475A4B5C2B2F3239007B6F5C /* OneSignalLocation in Frameworks */,
+				475A4B562B2F3239007B6F5C /* OneSignalExtension in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		473D124F2B29DF4E008F4FDB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				47E541842B0AAC7F00829403 /* ContentView.swift */,
+				47E541A72B0CF94500829403 /* LoginView.swift */,
+				475A4B762B30832F007B6F5C /* WebView.swift */,
+				475A4B742B307DFE007B6F5C /* LoadingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		473D12502B29DF5B008F4FDB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				47E541A32B0ABA6C00829403 /* WebViewModel.swift */,
+				473D124B2B29DB94008F4FDB /* APIMain.swift */,
+				473D124D2B29DDBE008F4FDB /* APIManager.swift */,
+				475A4B702B307BE9007B6F5C /* Links.swift */,
+				475A4B6E2B3079A9007B6F5C /* AuthApp.swift */,
+				473D12512B29E08B008F4FDB /* DataInteractor.swift */,
+				475A4B782B309825007B6F5C /* WebViewDestination.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		475A4B632B2F338C007B6F5C /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				475A4B642B2F338C007B6F5C /* NotificationService.swift */,
+				475A4B662B2F338C007B6F5C /* Info.plist */,
+			);
+			path = OneSignalNotificationServiceExtension;
+			sourceTree = "<group>";
+		};
+		475A4B7C2B30E3BC007B6F5C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				475A4B7A2B30E3B8007B6F5C /* CharacterSet+extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		47E541762B0AAC7F00829403 = {
+			isa = PBXGroup;
+			children = (
+				47E541812B0AAC7F00829403 /* Rede Duque */,
+				475A4B632B2F338C007B6F5C /* OneSignalNotificationServiceExtension */,
+				47E541802B0AAC7F00829403 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		47E541802B0AAC7F00829403 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				47E5417F2B0AAC7F00829403 /* Rede Duque.app */,
+				475A4B622B2F338C007B6F5C /* OneSignalNotificationServiceExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		47E541812B0AAC7F00829403 /* Rede Duque */ = {
+			isa = PBXGroup;
+			children = (
+				475A4B5D2B2F329F007B6F5C /* Rede Duque.entitlements */,
+				47E5419E2B0AB62D00829403 /* Rede-Duque-Info.plist */,
+				47E541862B0AAC7F00829403 /* Assets.xcassets */,
+				47E541822B0AAC7F00829403 /* Rede_DuqueApp.swift */,
+				473D124F2B29DF4E008F4FDB /* View */,
+				473D12502B29DF5B008F4FDB /* Model */,
+				475A4B7C2B30E3BC007B6F5C /* Extensions */,
+				47E541902B0AB5FF00829403 /* Fonts */,
+				47E541882B0AAC7F00829403 /* Preview Content */,
+			);
+			path = "Rede Duque";
+			sourceTree = "<group>";
+		};
+		47E541882B0AAC7F00829403 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				47E541892B0AAC7F00829403 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		47E541902B0AB5FF00829403 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				47E541912B0AB60500829403 /* Roboto */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		47E541912B0AB60500829403 /* Roboto */ = {
+			isa = PBXGroup;
+			children = (
+				47E541A52B0CF8F000829403 /* Roboto-Black.ttf */,
+				47E5419C2B0AB61000829403 /* Roboto-Regular.ttf */,
+				47E5419F2B0AB77000829403 /* Roboto-Bold.ttf */,
+			);
+			path = Roboto;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		475A4B612B2F338C007B6F5C /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 475A4B6A2B2F338C007B6F5C /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
+			buildPhases = (
+				475A4B5E2B2F338C007B6F5C /* Sources */,
+				475A4B5F2B2F338C007B6F5C /* Frameworks */,
+				475A4B602B2F338C007B6F5C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OneSignalNotificationServiceExtension;
+			productName = OneSignalNotificationServiceExtension;
+			productReference = 475A4B622B2F338C007B6F5C /* OneSignalNotificationServiceExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		47E5417E2B0AAC7F00829403 /* Rede Duque */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 47E5418D2B0AAC7F00829403 /* Build configuration list for PBXNativeTarget "Rede Duque" */;
+			buildPhases = (
+				47E5417B2B0AAC7F00829403 /* Sources */,
+				47E5417C2B0AAC7F00829403 /* Frameworks */,
+				47E5417D2B0AAC7F00829403 /* Resources */,
+				475A4B6D2B2F338C007B6F5C /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				475A4B682B2F338C007B6F5C /* PBXTargetDependency */,
+			);
+			name = "Rede Duque";
+			packageProductDependencies = (
+				475A4B552B2F3239007B6F5C /* OneSignalExtension */,
+				475A4B572B2F3239007B6F5C /* OneSignalFramework */,
+				475A4B592B2F3239007B6F5C /* OneSignalInAppMessages */,
+				475A4B5B2B2F3239007B6F5C /* OneSignalLocation */,
+			);
+			productName = "Rede Duque";
+			productReference = 47E5417F2B0AAC7F00829403 /* Rede Duque.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		47E541772B0AAC7F00829403 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1510;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					475A4B612B2F338C007B6F5C = {
+						CreatedOnToolsVersion = 15.1;
+					};
+					47E5417E2B0AAC7F00829403 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 47E5417A2B0AAC7F00829403 /* Build configuration list for PBXProject "Rede Duque" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 47E541762B0AAC7F00829403;
+			packageReferences = (
+				475A4B542B2F3239007B6F5C /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */,
+			);
+			productRefGroup = 47E541802B0AAC7F00829403 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				47E5417E2B0AAC7F00829403 /* Rede Duque */,
+				475A4B612B2F338C007B6F5C /* OneSignalNotificationServiceExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		475A4B602B2F338C007B6F5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47E5417D2B0AAC7F00829403 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47E5418A2B0AAC7F00829403 /* Preview Assets.xcassets in Resources */,
+				47E541872B0AAC7F00829403 /* Assets.xcassets in Resources */,
+				47E541A12B0AB90F00829403 /* Roboto-Regular.ttf in Resources */,
+				47E541A22B0AB9C500829403 /* Rede-Duque-Info.plist in Resources */,
+				47E541A02B0AB90C00829403 /* Roboto-Bold.ttf in Resources */,
+				47E541A62B0CF8F000829403 /* Roboto-Black.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		475A4B5E2B2F338C007B6F5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				475A4B652B2F338C007B6F5C /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47E5417B2B0AAC7F00829403 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				473D124E2B29DDBE008F4FDB /* APIManager.swift in Sources */,
+				47E541A42B0ABA6C00829403 /* WebViewModel.swift in Sources */,
+				47E541852B0AAC7F00829403 /* ContentView.swift in Sources */,
+				475A4B752B307DFE007B6F5C /* LoadingView.swift in Sources */,
+				475A4B6F2B3079A9007B6F5C /* AuthApp.swift in Sources */,
+				475A4B712B307BE9007B6F5C /* Links.swift in Sources */,
+				473D124C2B29DB94008F4FDB /* APIMain.swift in Sources */,
+				475A4B7B2B30E3B8007B6F5C /* CharacterSet+extension.swift in Sources */,
+				47E541A82B0CF94500829403 /* LoginView.swift in Sources */,
+				47E541832B0AAC7F00829403 /* Rede_DuqueApp.swift in Sources */,
+				473D12522B29E08B008F4FDB /* DataInteractor.swift in Sources */,
+				475A4B792B309825007B6F5C /* WebViewDestination.swift in Sources */,
+				475A4B772B30832F007B6F5C /* WebView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		475A4B682B2F338C007B6F5C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 475A4B612B2F338C007B6F5C /* OneSignalNotificationServiceExtension */;
+			targetProxy = 475A4B672B2F338C007B6F5C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		475A4B6B2B2F338C007B6F5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WBAYHN46PY;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OneSignalNotificationServiceExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.rededuque.wapp.OneSignalNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		475A4B6C2B2F338C007B6F5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WBAYHN46PY;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OneSignalNotificationServiceExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.rededuque.wapp.OneSignalNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		47E5418B2B0AAC7F00829403 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		47E5418C2B0AAC7F00829403 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		47E5418E2B0AAC7F00829403 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Rede Duque/Rede Duque.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
+				DEVELOPMENT_ASSET_PATHS = "\"Rede Duque/Preview Content\"";
+				DEVELOPMENT_TEAM = WBAYHN46PY;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Rede-Duque-Info.plist";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "O Face ID sera usado para realizar o login!";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 3;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.rededuque.wapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		47E5418F2B0AAC7F00829403 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Rede Duque/Rede Duque.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
+				DEVELOPMENT_ASSET_PATHS = "\"Rede Duque/Preview Content\"";
+				DEVELOPMENT_TEAM = WBAYHN46PY;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Rede-Duque-Info.plist";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "O Face ID sera usado para realizar o login!";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 3;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.rededuque.wapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		475A4B6A2B2F338C007B6F5C /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				475A4B6B2B2F338C007B6F5C /* Debug */,
+				475A4B6C2B2F338C007B6F5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		47E5417A2B0AAC7F00829403 /* Build configuration list for PBXProject "Rede Duque" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47E5418B2B0AAC7F00829403 /* Debug */,
+				47E5418C2B0AAC7F00829403 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		47E5418D2B0AAC7F00829403 /* Build configuration list for PBXNativeTarget "Rede Duque" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47E5418E2B0AAC7F00829403 /* Debug */,
+				47E5418F2B0AAC7F00829403 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		475A4B542B2F3239007B6F5C /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/OneSignal/OneSignal-XCFramework";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		475A4B552B2F3239007B6F5C /* OneSignalExtension */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 475A4B542B2F3239007B6F5C /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
+			productName = OneSignalExtension;
+		};
+		475A4B572B2F3239007B6F5C /* OneSignalFramework */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 475A4B542B2F3239007B6F5C /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
+			productName = OneSignalFramework;
+		};
+		475A4B592B2F3239007B6F5C /* OneSignalInAppMessages */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 475A4B542B2F3239007B6F5C /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
+			productName = OneSignalInAppMessages;
+		};
+		475A4B5B2B2F3239007B6F5C /* OneSignalLocation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 475A4B542B2F3239007B6F5C /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
+			productName = OneSignalLocation;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 47E541772B0AAC7F00829403 /* Project object */;
+}
