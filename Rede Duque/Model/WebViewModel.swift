@@ -12,7 +12,9 @@ struct WebViewModel: UIViewRepresentable {
     
     func makeUIView(context: Context) -> WKWebView {
         let webView = WKWebView(frame: .zero)
-        
+        if #available(macOS 13.3, iOS 16.4, *) {
+          webView.isInspectable = true
+        }
         let request = URLRequest(url: url)
         webView.load(request)
         webView.navigationDelegate = context.coordinator
