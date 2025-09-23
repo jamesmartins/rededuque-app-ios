@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WebView: View {
     @Environment(\.presentationMode) var presentationMode
+    @AppStorage("authAppidU") var authAppidU    = ""
     
     @State var url : URL
     var didFail: (String) -> Void
@@ -25,6 +26,13 @@ struct WebView: View {
                 isLoading = true
             } didFinish: {
                 isLoading = false
+                
+                if url.absoluteString.localizedCaseInsensitiveContains("novoMenu.do") {
+                    DataInteractor.shared.consultaCli(idU: DataInteractor.shared.authAppidU) { result in
+                        print(result)
+                    }
+                }
+                
             } didFail: { error in
                 self.didFail(error)
                 isLoading = false

@@ -213,7 +213,7 @@ struct LoginView: View {
             }
             
         } else {
-            guard validateUsers() else { return }
+            guard validateUsers(!firstTime) else { return }
             guard !firstTime else {return}
             
             login()

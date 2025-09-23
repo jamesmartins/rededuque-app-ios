@@ -15,6 +15,9 @@ enum Links: String {
     case login = "https://adm.bunkerapp.com.br/wsjson/authApp.do"
     case novoMenu = "novoMenu.do?key="
     case intro = "intro.do?key=c2dYUmt3RllSZmvCog==&t=XgqGQ8h2mcoDrGsxcOEdHAdXO3s%C2%A3B1QY4"
+    case tokenApp = "https://adm.bunker.mk/wsjson/TokenAppPush.do"
+    //case consultaCli = "https://adm.bunker.mk/wsjson/ConsultaCli.do"
+    case consultaCli = "https://adm.bunkerapp.com.br/wsjson/ConsultaCli.do"
     
     var url: URL {
         let baseURL = "https://adm.bunkerapp.com.br/app/"

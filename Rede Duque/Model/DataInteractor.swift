@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import OneSignalFramework
 
 class DataInteractor {
     
@@ -66,19 +67,80 @@ class DataInteractor {
                 self.authApp = data
                 self.authAppkey = self.authApp?.key ?? ""
                 self.authAppidU = self.authApp?.idU ?? ""
-                DispatchQueue.main.async {
-                    completion(.success(()))
+                
+                consultaCli(idU: self.authAppidU) { result in
+                    switch result{
+                    case .success():
+                        DispatchQueue.main.async {
+                            completion(.success(()))
+                        }
+                    case .failure(let error):
+                        print("Erro no consultaCli: \(error.localizedDescription)\n")
+                        print("Login em andamento.")
+                        DispatchQueue.main.async {
+                            completion(.success(()))
+                        }
+                    }
                 }
+                
+                
             } catch {
                 print("1 - Erro no Login - \(#function):\n\(error)\n")
                 print("2 - Erro no Login - \(#function):\n\(error.localizedDescription)\n")
                 DispatchQueue.main.async {
-                    self.authAppkey = ""
-                    self.authAppidU = ""
                     completion(.failure(error))
                 }
             }
         }
+    }
+    
+    func consultaCli(idU: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        Task {
+            do {
+                let apiManager = APIManager()
+                
+                var paramBase64 : String = ""
+                if let data = idU.data(using: .utf8) {
+                    paramBase64 = data.base64EncodedString()
+                }
+                
+                let param : [String:Any] = ["RD_userId" : paramBase64 , "RD_userCompany" : 19]
+                let data : ConsultaCLI = try await apiManager.performRequest(urlString: Links.consultaCli.rawValue, method: .post(body:param))
+                
+                var user = RDUser(rdUserID: data.rdUserID?.description,
+                                  rdUserCompany: data.rdUserCompany,
+                                  rdUserMail: data.rdUserMail,
+                                  rdUserName: data.rdUserName,
+                                  rdUserType: data.rdUserType?.description,
+                                  rdTokenCelular: OneSignal.User.pushSubscription.token,
+                                  rdUserPlayerID: OneSignal.User.pushSubscription.id,
+                                  rdVersao: "iOS")
+                
+                if let userParam = toDictionary(user) {
+                    let rd : RDUser = try await apiManager.performRequest(urlString: Links.tokenApp.rawValue, method: .post(body:userParam))
+                }
+                
+                DispatchQueue.main.async {
+                    completion(.success(()))
+                }
+            } catch {
+                print("Erro no consultaCli: \(error.localizedDescription)")
+                completion(.failure(error))
+            }
+        }
+    }
+
+    
+    func toDictionary<T: Codable>(_ codableObject: T) -> [String: Any]? {
+        do {
+            let jsonData = try JSONEncoder().encode(codableObject)
+            if let dictionary = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as? [String: Any] {
+                return dictionary
+            }
+        } catch {
+            print("Erro ao converter para dicionário: \(error)")
+        }
+        return nil
     }
     
 }

@@ -14,40 +14,218 @@
             filePath = "Rede Duque/Model/DataInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "login(user:password:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AEDD37AD-620D-46F9-9842-E2808905CBC2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Rede Duque/Model/DataInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "consultaCli(idU:completion:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "2AD8D110-D169-426E-9A1B-483D1F142EA6 - b5bf1c6e14ce9291"
+                  uuid = "AEDD37AD-620D-46F9-9842-E2808905CBC2 - b51e4faf50fc77cf"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Rede_Duque.DataInteractor.login(user: Swift.String, password: Swift.String, completion: (Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "Rede Duque"
+                  symbolName = "(3) suspend resume partial function for closure #1 () async -&gt; () in Rede_Duque.DataInteractor.consultaCli(idU: Swift.String, completion: (Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Rede Duque.debug.dylib"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/duane/Desktop/Rede%20Duque/Rede%20Duque/Model/DataInteractor.swift"
+                  urlString = "file:///Users/duane/Documents/GitHub/rededuque-app-ios/Rede%20Duque/Model/DataInteractor.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "72"
-                  endingLineNumber = "72"
-                  offsetFromSymbolStart = "420">
+                  startingLineNumber = "120"
+                  endingLineNumber = "120">
                </Location>
                <Location
-                  uuid = "2AD8D110-D169-426E-9A1B-483D1F142EA6 - b5bf1c6e14ce92b2"
+                  uuid = "AEDD37AD-620D-46F9-9842-E2808905CBC2 - 4f156bd06ead59ac"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Rede_Duque.DataInteractor.login(user: Swift.String, password: Swift.String, completion: (Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "Rede Duque"
+                  symbolName = "(4) await resume partial function for closure #1 () async -&gt; () in Rede_Duque.DataInteractor.consultaCli(idU: Swift.String, completion: (Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Rede Duque.debug.dylib"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/duane/Desktop/Rede%20Duque/Rede%20Duque/Model/DataInteractor.swift"
+                  urlString = "file:///Users/duane/Documents/GitHub/rededuque-app-ios/Rede%20Duque/Model/DataInteractor.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "73"
-                  endingLineNumber = "73"
-                  offsetFromSymbolStart = "420">
+                  startingLineNumber = "120"
+                  endingLineNumber = "120">
+               </Location>
+               <Location
+                  uuid = "AEDD37AD-620D-46F9-9842-E2808905CBC2 - e621c980f55533d1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for closure #1 () async -&gt; () in Rede_Duque.DataInteractor.consultaCli(idU: Swift.String, completion: (Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Rede Duque.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/duane/Documents/GitHub/rededuque-app-ios/Rede%20Duque/Model/DataInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120">
+               </Location>
+               <Location
+                  uuid = "AEDD37AD-620D-46F9-9842-E2808905CBC2 - d7c1b352ae2fffd3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for closure #1 () async -&gt; () in Rede_Duque.DataInteractor.consultaCli(idU: Swift.String, completion: (Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Rede Duque.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/duane/Documents/GitHub/rededuque-app-ios/Rede%20Duque/Model/DataInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "75AE7817-39DC-4542-86E1-C28ABA74674D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Rede Duque/Model/DataInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "consultaCli(idU:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F6117079-6846-43D0-9330-42EFC2B32061"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Rede Duque/Model/DataInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "consultaCli(idU:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F6117079-6846-43D0-9330-42EFC2B32061 - 7eb1f46bd88292f7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(6) suspend resume partial function for closure #1 () async -&gt; () in Rede_Duque.DataInteractor.consultaCli(idU: Swift.String, completion: (Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Rede Duque.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/duane/Documents/GitHub/rededuque-app-ios/Rede%20Duque/Model/DataInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "127"
+                  endingLineNumber = "127">
+               </Location>
+               <Location
+                  uuid = "F6117079-6846-43D0-9330-42EFC2B32061 - d7c1b352ae2ffcf4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for closure #1 () async -&gt; () in Rede_Duque.DataInteractor.consultaCli(idU: Swift.String, completion: (Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Rede Duque.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/duane/Documents/GitHub/rededuque-app-ios/Rede%20Duque/Model/DataInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "127"
+                  endingLineNumber = "127">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BF0EEC01-B0D1-4535-AD91-DF39B3068882"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Rede Duque/Model/DataInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "consultaCli(idU:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BF0EEC01-B0D1-4535-AD91-DF39B3068882 - 447ec5ddbe23ad59"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 () async -&gt; () in Rede_Duque.DataInteractor.consultaCli(idU: Swift.String, completion: (Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Rede Duque.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/duane/Documents/GitHub/rededuque-app-ios/Rede%20Duque/Model/DataInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "108"
+                  endingLineNumber = "108">
+               </Location>
+               <Location
+                  uuid = "BF0EEC01-B0D1-4535-AD91-DF39B3068882 - a492894374749b3e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for closure #1 () async -&gt; () in Rede_Duque.DataInteractor.consultaCli(idU: Swift.String, completion: (Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Rede Duque.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/duane/Documents/GitHub/rededuque-app-ios/Rede%20Duque/Model/DataInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "108"
+                  endingLineNumber = "108">
+               </Location>
+               <Location
+                  uuid = "BF0EEC01-B0D1-4535-AD91-DF39B3068882 - b51e4faf50fc715b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 () async -&gt; () in Rede_Duque.DataInteractor.consultaCli(idU: Swift.String, completion: (Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Rede Duque.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/duane/Documents/GitHub/rededuque-app-ios/Rede%20Duque/Model/DataInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "108"
+                  endingLineNumber = "108">
+               </Location>
+               <Location
+                  uuid = "BF0EEC01-B0D1-4535-AD91-DF39B3068882 - 7eb1f46bd8829744"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(6) suspend resume partial function for closure #1 () async -&gt; () in Rede_Duque.DataInteractor.consultaCli(idU: Swift.String, completion: (Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Rede Duque.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/duane/Documents/GitHub/rededuque-app-ios/Rede%20Duque/Model/DataInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "108"
+                  endingLineNumber = "108">
                </Location>
             </Locations>
          </BreakpointContent>
