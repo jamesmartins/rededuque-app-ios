@@ -7,6 +7,7 @@
 
 import SwiftUI
 import LocalAuthentication
+import StoreKit
 
 struct LoginView: View {
     //MARK: - Vars
@@ -208,6 +209,7 @@ struct LoginView: View {
                 if success {
                     login()
                 } else {
+                    print(error?.localizedDescription)
                     erroFaceID = true
                 }
             }
@@ -240,6 +242,7 @@ struct LoginView: View {
                     isLoading = false
                     destinationWebView = .novoMenu
                     showWebView = true
+                    solicitarAvaliacao()
                 }
             case .failure(let error):
                 DispatchQueue.main.async{
@@ -261,6 +264,13 @@ struct LoginView: View {
     private func hideKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         isTextFieldFocused = false
+    }
+    
+    func solicitarAvaliacao() {
+        if let scene = UIApplication.shared.connectedScenes
+            .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+            SKStoreReviewController.requestReview(in: scene)
+        }
     }
     
     //MARK: - Mascara CPF ou CNPJ

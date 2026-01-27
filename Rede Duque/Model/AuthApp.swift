@@ -11,7 +11,8 @@ import Foundation
 struct AuthApp: Codable {
     let codCliente: String
     let auth: Bool
-    let key, idU, idL, entidade: String
+    let key, idU, idL: String
+    let entidade: String?
     let veiculos: [Veiculo]
 
     enum CodingKeys: String, CodingKey {
