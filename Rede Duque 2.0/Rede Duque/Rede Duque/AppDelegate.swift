@@ -7,7 +7,7 @@
 
 import UIKit
 import FirebaseCore
-import OneSignal
+import OneSignalFramework
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -15,39 +15,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        // Window
         FirebaseApp.configure()
-        
+
         UNUserNotificationCenter.current().delegate = self
 
-        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-        UNUserNotificationCenter.current().requestAuthorization(
-          options: authOptions,
-          completionHandler: { _, _ in }
-        )
-
-        application.registerForRemoteNotifications()
-
-        // Remove this method to stop OneSignal Debugging
-        OneSignal.setLogLevel(.LL_VERBOSE, visualLevel: .LL_NONE)
-
-        // OneSignal initialization
-        OneSignal.initWithLaunchOptions(launchOptions)
-        OneSignal.setAppId("44d9f03b-bee3-4391-ab6c-8357d637e81b")
-
-        // promptForPushNotifications will show the native iOS notification permission prompt.
-        // We recommend removing the following code and instead using an In-App Message to prompt for notification permission (See step 8)
-        OneSignal.promptForPushNotifications(userResponse: { accepted in
+        OneSignal.Debug.setLogLevel(.LL_VERBOSE)
+        OneSignal.initialize("44d9f03b-bee3-4391-ab6c-8357d637e81b", withLaunchOptions: launchOptions)
+        OneSignal.Notifications.requestPermission({ accepted in
             print("User accepted notifications: \(accepted)")
-        })
-        
-        
+        }, fallbackToSettings: false)
+
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.black
         window?.rootViewController = ViewController()
         window?.makeKeyAndVisible()
-        
+
         return true
     }
 

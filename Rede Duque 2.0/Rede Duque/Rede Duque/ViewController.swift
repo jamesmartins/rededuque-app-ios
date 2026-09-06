@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 import NVActivityIndicatorView
-import OneSignal
+import OneSignalFramework
 import LocalAuthentication
 
 class ViewController: UIViewController {
@@ -326,20 +326,28 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate{
     }
     
     func randlerTokenOneSignal(_ cli: ConsultaCli){
-        
-        guard let deviceState = OneSignal.getDeviceState() else {return}
-        guard let token = deviceState.pushToken else {return}
-        guard let userId = deviceState.userId else {return}
-        
+        let pushSubscription = OneSignal.User.pushSubscription
+        guard let token = pushSubscription.token else { return }
+        guard let userId = pushSubscription.id else { return }
+
         print(cli)
-        
-        let param : [String: Any] = ["RD_userId": cli.rdUserID, "RD_userCompany": cli.rdUserCompany, "RD_userMail": cli.rdUserMail, "RD_userName": cli.rdUserName, "RD_userType":cli.rdUserType, "RD_TokenCelular":token, "RD_Versao":"iOS", "RD_User_Player_Id" : userId]
-        
+
+        let param: [String: Any] = [
+            "RD_userId": cli.rdUserID,
+            "RD_userCompany": cli.rdUserCompany,
+            "RD_userMail": cli.rdUserMail,
+            "RD_userName": cli.rdUserName,
+            "RD_userType": cli.rdUserType,
+            "RD_TokenCelular": token,
+            "RD_Versao": "iOS",
+            "RD_User_Player_Id": userId
+        ]
+
         print(param)
-        
+
         let path = "https://adm.bunker.mk/wsjson/TokenAppPush.do"
-        
-        Service.shared.request(path, method: .POST , parameters: param) { (result: Result<TokenOneSignal, ErrorTypes>) in
+
+        Service.shared.request(path, method: .POST, parameters: param) { (result: Result<TokenOneSignal, ErrorTypes>) in
             switch result {
             case .failure(let err): print("Error token: ", err)
             case .success(let resp): print("Successfully saved token:", resp)
