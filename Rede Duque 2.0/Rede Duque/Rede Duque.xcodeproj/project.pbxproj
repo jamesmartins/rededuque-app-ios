@@ -13,9 +13,6 @@
 		47511273294CAE7500EEA2CB /* OneSignalNotificationServiceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4751126C294CAE7500EEA2CB /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		476873782950A06E002228FF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476873772950A06E002228FF /* Extensions.swift */; };
 		479F73E42941269D00A2EC50 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 479F73E32941269D00A2EC50 /* FirebaseAnalytics */; };
-		479F73E62941269D00A2EC50 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 479F73E52941269D00A2EC50 /* FirebaseAuth */; };
-		479F73E82941269D00A2EC50 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 479F73E72941269D00A2EC50 /* FirebaseDatabase */; };
-		479F73EA2941269D00A2EC50 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 479F73E92941269D00A2EC50 /* FirebaseMessaging */; };
 		479F73EC294127FA00A2EC50 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 479F73EB294127F900A2EC50 /* GoogleService-Info.plist */; };
 		47E842A1289850F50060F917 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E842A0289850F50060F917 /* AppDelegate.swift */; };
 		47E842A3289850F50060F917 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E842A2289850F50060F917 /* SceneDelegate.swift */; };
@@ -83,12 +80,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				479F73EA2941269D00A2EC50 /* FirebaseMessaging in Frameworks */,
-				479F73E82941269D00A2EC50 /* FirebaseDatabase in Frameworks */,
 				47147E8428D8E2CA00C4C7CE /* NVActivityIndicatorView in Frameworks */,
 				47147E8628D8E2CA00C4C7CE /* NVActivityIndicatorViewExtended in Frameworks */,
 				479F73E42941269D00A2EC50 /* FirebaseAnalytics in Frameworks */,
-				479F73E62941269D00A2EC50 /* FirebaseAuth in Frameworks */,
 				9DDB983D29C8E91051D6D37F /* OneSignalFramework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -190,6 +184,8 @@
 			dependencies = (
 			);
 			name = OneSignalNotificationServiceExtension;
+			packageProductDependencies = (
+			);
 			productName = OneSignalNotificationServiceExtension;
 			productReference = 4751126C294CAE7500EEA2CB /* OneSignalNotificationServiceExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -213,9 +209,6 @@
 				47147E8328D8E2CA00C4C7CE /* NVActivityIndicatorView */,
 				47147E8528D8E2CA00C4C7CE /* NVActivityIndicatorViewExtended */,
 				479F73E32941269D00A2EC50 /* FirebaseAnalytics */,
-				479F73E52941269D00A2EC50 /* FirebaseAuth */,
-				479F73E72941269D00A2EC50 /* FirebaseDatabase */,
-				479F73E92941269D00A2EC50 /* FirebaseMessaging */,
 				0F30CCD123CFF8ABCAFB55FD /* OneSignalFramework */,
 			);
 			productName = "Rede Duque";
@@ -230,7 +223,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1410;
-				LastUpgradeCheck = 1400;
+				LastUpgradeCheck = 1640;
 				TargetAttributes = {
 					4751126B294CAE7500EEA2CB = {
 						CreatedOnToolsVersion = 14.1;
@@ -283,9 +276,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		47511268294CAE7500EEA2CB /* Sources */ = {
@@ -524,7 +514,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.2.5;
+				MARKETING_VERSION = 4.2;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -559,7 +549,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.2.5;
+				MARKETING_VERSION = 4.2;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -610,7 +600,7 @@
 			repositoryURL = "https://github.com/OneSignal/OneSignal-XCFramework";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.2.9;
+				minimumVersion = 5.5.6;
 			};
 		};
 		47147E8228D8E2CA00C4C7CE /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
@@ -618,15 +608,15 @@
 			repositoryURL = "https://github.com/ninjaprox/NVActivityIndicatorView.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
+				minimumVersion = 5.2.0;
 			};
 		};
 		479F73E22941269D00A2EC50 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.29.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -651,21 +641,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 479F73E22941269D00A2EC50 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
-		};
-		479F73E52941269D00A2EC50 /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 479F73E22941269D00A2EC50 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
-		479F73E72941269D00A2EC50 /* FirebaseDatabase */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 479F73E22941269D00A2EC50 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseDatabase;
-		};
-		479F73E92941269D00A2EC50 /* FirebaseMessaging */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 479F73E22941269D00A2EC50 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
