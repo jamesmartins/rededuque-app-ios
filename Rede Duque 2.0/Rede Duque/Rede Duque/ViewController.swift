@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     //let appURL = URL(string: "https://adm.bunkerapp.com.br/app/app.do?key=c2dYUmt3RllSZmvCog==&dev=true")!
     var webView: WKWebView!
     var indicator = NVActivityIndicatorView(frame: .zero)
+    private var isNativeHomePresented = false
     
     //MARK: - INIT
     override func loadView() {
@@ -218,6 +219,11 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate{
                 
                 self.randlerConsultaCli(userID: userID)
             }
+
+            // Home nativa (saldo/menu) — dados de API serão ligados depois
+            if !self.isNativeHomePresented {
+                self.showNativeHome(userName: self.getString("userName") ?? "Cliente")
+            }
             
         } else {
             //print("URL: " + (webView.url?.description ?? ""))
@@ -231,7 +237,43 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate{
     }
     
     //MARK: - FUNCS
-    
+
+    func showNativeHome(userName: String) {
+        isNativeHomePresented = true
+        let viewModel = HomeViewModel(userName: userName)
+        viewModel.onBack = { [weak self] in
+            self?.dismissNativeHome()
+        }
+        viewModel.onGenerateToken = {
+            print("Home: Gerar Token")
+        }
+        viewModel.onMenuItem = { item in
+            print("Home menu:", item.rawValue)
+        }
+        viewModel.onRedeemed = {
+            print("Home: Resgatado")
+        }
+        viewModel.onExpired = {
+            print("Home: Expirado")
+        }
+
+        let home = HomeViewController(viewModel: viewModel)
+        home.modalPresentationStyle = .fullScreen
+        DispatchQueue.main.async {
+            self.present(home, animated: true)
+        }
+    }
+
+    func dismissNativeHome() {
+        isNativeHomePresented = false
+        dismiss(animated: true)
+    }
+
+    func updateNativeHome(userName: String) {
+        if let home = presentedViewController as? HomeViewController {
+            home.viewModel.userName = userName
+        }
+    }    
     func randlerCookies(cookies: [HTTPCookie]){
         
         if cookies.count != 2 {return}
@@ -319,6 +361,8 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate{
                 print("Error token: ", err)
             case .success(let resp):
                 print("Successfully saved token:\n", resp)
+                self.set("userName", resp.rdUserName)
+                self.updateNativeHome(userName: resp.rdUserName)
                 self.randlerTokenOneSignal(resp)
             }
             

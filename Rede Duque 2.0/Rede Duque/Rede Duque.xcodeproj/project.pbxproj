@@ -17,6 +17,9 @@
 		47E842A1289850F50060F917 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E842A0289850F50060F917 /* AppDelegate.swift */; };
 		47E842A3289850F50060F917 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E842A2289850F50060F917 /* SceneDelegate.swift */; };
 		47E842A5289850F50060F917 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E842A4289850F50060F917 /* ViewController.swift */; };
+		A1B2C3D401HOME0000000001 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D401HOME0000000004 /* HomeView.swift */; };
+		A1B2C3D401HOME0000000002 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D401HOME0000000005 /* HomeViewModel.swift */; };
+		A1B2C3D401HOME0000000003 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D401HOME0000000006 /* HomeViewController.swift */; };
 		47E842AA289850F60060F917 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47E842A9289850F60060F917 /* Assets.xcassets */; };
 		47E842AD289850F60060F917 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47E842AB289850F60060F917 /* LaunchScreen.storyboard */; };
 		47FEEADB294F3E43001F5E6F /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FEEADA294F3E43001F5E6F /* Service.swift */; };
@@ -60,6 +63,9 @@
 		47E842A0289850F50060F917 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47E842A2289850F50060F917 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		47E842A4289850F50060F917 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A1B2C3D401HOME0000000004 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A1B2C3D401HOME0000000005 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		A1B2C3D401HOME0000000006 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		47E842A9289850F60060F917 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47E842AC289850F60060F917 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		47E842AE289850F60060F917 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -133,6 +139,7 @@
 				47E842A0289850F50060F917 /* AppDelegate.swift */,
 				47E842A2289850F50060F917 /* SceneDelegate.swift */,
 				47E842A4289850F50060F917 /* ViewController.swift */,
+				A1B2C3D401HOME0000000007 /* Home */,
 				47FEEAE4294F480E001F5E6F /* Service */,
 				47FEEAE3294F4802001F5E6F /* Models */,
 				476873792950DA3A002228FF /* Comons */,
@@ -142,6 +149,16 @@
 				47E842AE289850F60060F917 /* Info.plist */,
 			);
 			path = "Rede Duque";
+			sourceTree = "<group>";
+		};
+		A1B2C3D401HOME0000000007 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3D401HOME0000000004 /* HomeView.swift */,
+				A1B2C3D401HOME0000000005 /* HomeViewModel.swift */,
+				A1B2C3D401HOME0000000006 /* HomeViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		47FEEAE3294F4802001F5E6F /* Models */ = {
@@ -291,6 +308,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				47E842A5289850F50060F917 /* ViewController.swift in Sources */,
+				A1B2C3D401HOME0000000001 /* HomeView.swift in Sources */,
+				A1B2C3D401HOME0000000002 /* HomeViewModel.swift in Sources */,
+				A1B2C3D401HOME0000000003 /* HomeViewController.swift in Sources */,
 				47FEEADB294F3E43001F5E6F /* Service.swift in Sources */,
 				47FEEAE2294F47C0001F5E6F /* TokenOneSignal.swift in Sources */,
 				47FEEAE0294F472E001F5E6F /* ConsultaCli.swift in Sources */,
