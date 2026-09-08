@@ -74,11 +74,33 @@ final class HomeViewModel: ObservableObject {
         "Olá, \(firstName)!"
     }
 
+    private(set) var didResolveNameFromAPI = false
+
     func applyUserName(_ raw: String) {
         let trimmed = raw.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty else { return }
         userName = trimmed
         firstName = Self.extractFirstName(from: trimmed)
+    }
+
+    /// Prefers `primeiro_nome` from dadoscompras; falls back to the first token of `nome`.
+    func applyClienteName(primeiroNome: String?, nome: String) {
+        let preferred = (primeiroNome ?? "")
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+        let full = nome.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        if !preferred.isEmpty {
+            firstName = preferred
+            userName = full.isEmpty ? preferred : full
+        } else if !full.isEmpty {
+            userName = full
+            firstName = Self.extractFirstName(from: full)
+        } else {
+            return
+        }
+
+        didResolveNameFromAPI = true
+        UserDefaults.standard.set(firstName, forKey: "userName")
     }
 
     static func extractFirstName(from raw: String) -> String {
@@ -116,12 +138,8 @@ final class HomeViewModel: ObservableObject {
                     return
                 }
                 if let cliente = response.cliente {
-                    let preferred = (cliente.primeiroNome ?? "")
-                        .trimmingCharacters(in: .whitespacesAndNewlines)
-                    let full = cliente.nome.trimmingCharacters(in: .whitespacesAndNewlines)
-                    self.applyUserName(preferred.isEmpty ? full : preferred)
+                    self.applyClienteName(primeiroNome: cliente.primeiroNome, nome: cliente.nome)
                     UserDefaults.standard.set(cliente.numCgcecpf, forKey: "cpf")
-                    UserDefaults.standard.set(self.firstName, forKey: "userName")
                     self.cpf = cliente.numCgcecpf
                 }
                 if let saldo = response.saldo {

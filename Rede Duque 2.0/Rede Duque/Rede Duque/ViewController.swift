@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     var webView: WKWebView!
     var indicator = NVActivityIndicatorView(frame: .zero)
     private var isNativeHomePresented = false
+    private var isPresentingNativeHome = false
     
     //MARK: - INIT
     override func loadView() {
@@ -160,7 +161,8 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHan
             }
             
         } else if url.contains("novoMenu") && !url.contains("idL=") {
-            clearSessionCredentials()
+            // Only drop the session token — keep CPF/login for dadoscompras / Face ID.
+            clear("idL")
         }
         
         dump("fim")
@@ -179,11 +181,9 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHan
                 self.randlerConsultaCli(userID: userID)
             }
 
-            if !self.isNativeHomePresented {
-                self.captureAndPersistCPFFromWebView { [weak self] in
-                    guard let self = self else { return }
-                    self.showNativeHome(userName: self.getString("userName") ?? "Cliente")
-                }
+            if !self.isNativeHomePresented && !self.isPresentingNativeHome {
+                self.isPresentingNativeHome = true
+                self.presentNativeHomeWhenCPFReady()
             }
             
         }
@@ -197,9 +197,23 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHan
     
     //MARK: - FUNCS
 
+    func presentNativeHomeWhenCPFReady(attempt: Int = 0) {
+        captureAndPersistCPFFromWebView { [weak self] in
+            guard let self = self else { return }
+            if self.storedCPF() != nil || attempt >= 4 {
+                self.showNativeHome(userName: self.getString("userName") ?? "Cliente")
+                return
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) { [weak self] in
+                self?.presentNativeHomeWhenCPFReady(attempt: attempt + 1)
+            }
+        }
+    }
+
     func showNativeHome(userName: String) {
         isNativeHomePresented = true
-        let cpf = getString("cpf") ?? getString("login")
+        isPresentingNativeHome = false
+        let cpf = storedCPF()
         let viewModel = HomeViewModel(userName: userName, cpf: cpf)
         viewModel.onBack = { [weak self] in
             self?.dismissNativeHome()
@@ -231,21 +245,42 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHan
 
     func dismissNativeHome() {
         isNativeHomePresented = false
+        isPresentingNativeHome = false
         dismiss(animated: true)
     }
 
     func updateNativeHome(userName: String) {
         if let home = presentedViewController as? HomeViewController {
-            home.viewModel.applyUserName(userName)
-            if let cpf = self.getString("cpf") {
+            // Keep `primeiro_nome` from dadoscompras; only fill name if still placeholder.
+            if !home.viewModel.didResolveNameFromAPI {
+                home.viewModel.applyUserName(userName)
+            }
+            if let cpf = storedCPF() {
+                let hadMissingCPF = home.viewModel.cpf == nil
                 home.viewModel.cpf = cpf
+                if hadMissingCPF {
+                    home.viewModel.loadHome()
+                }
             }
         }
+    }
+
+    /// Returns persisted CPF digits when valid (10–11).
+    func storedCPF() -> String? {
+        for key in ["cpf", "login"] {
+            guard let raw = getString(key) else { continue }
+            let digits = raw.filter(\.isNumber)
+            if (10...11).contains(digits.count) {
+                return digits
+            }
+        }
+        return nil
     }
 
     func performLogout() {
         clearSessionCredentials()
         isNativeHomePresented = false
+        isPresentingNativeHome = false
         dismiss(animated: true) { [weak self] in
             guard let self = self else { return }
             self.webView.load(URLRequest(url: self.appURL))
@@ -272,6 +307,11 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHan
     }
 
     func captureAndPersistCPFFromWebView(completion: (() -> Void)?) {
+        if storedCPF() != nil {
+            completion?()
+            return
+        }
+
         let group = DispatchGroup()
 
         group.enter()
@@ -281,8 +321,12 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHan
             for cookie in cookies {
                 let name = cookie.name.lowercased()
                 if name.contains("login") || name.contains("cpf") || name.contains("cgce") || name.contains("usuario") {
-                    _ = self.persistCPFIfValid(cookie.value)
+                    if self.persistCPFIfValid(cookie.value) { return }
                 }
+            }
+            // Fallback: any cookie whose value looks like a CPF.
+            for cookie in cookies {
+                if self.persistCPFIfValid(cookie.value) { return }
             }
         }
 
@@ -298,9 +342,16 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHan
             });
           } catch (e) {}
           try {
+            var parts = (document.cookie || '').split(';');
+            for (var i = 0; i < parts.length; i++) {
+              var kv = parts[i].split('=');
+              if (kv.length >= 2) push(decodeURIComponent(kv.slice(1).join('=').trim()));
+            }
+          } catch (e) {}
+          try {
             document.querySelectorAll('input').forEach(function(el){
-              var n = ((el.name||'') + ' ' + (el.id||'') + ' ' + (el.placeholder||'')).toLowerCase();
-              if (n.indexOf('cpf') >= 0 || n.indexOf('login') >= 0 || n.indexOf('usuario') >= 0 || n.indexOf('documento') >= 0) {
+              var n = ((el.name||'') + ' ' + (el.id||'') + ' ' + (el.placeholder||'') + ' ' + (el.type||'')).toLowerCase();
+              if (n.indexOf('cpf') >= 0 || n.indexOf('login') >= 0 || n.indexOf('usuario') >= 0 || n.indexOf('documento') >= 0 || n.indexOf('tel') >= 0) {
                 push(el.value);
               } else if (el.value && String(el.value).replace(/\\D/g,'').length >= 10) {
                 push(el.value);
@@ -345,6 +396,13 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHan
           });
         } catch (e) {}
         try {
+          var parts = (document.cookie || '').split(';');
+          for (var i = 0; i < parts.length; i++) {
+            var kv = parts[i].split('=');
+            if (kv.length >= 2) send(decodeURIComponent(kv.slice(1).join('=').trim()));
+          }
+        } catch (e) {}
+        try {
           document.querySelectorAll('input').forEach(function(el){ send(el.value); });
         } catch (e) {}
       }
@@ -352,7 +410,11 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHan
       document.addEventListener('change', function(e){
         if (e && e.target) { send(e.target.value); }
       }, true);
+      document.addEventListener('input', function(e){
+        if (e && e.target) { send(e.target.value); }
+      }, true);
       setTimeout(scan, 300);
+      setTimeout(scan, 1000);
     })();
     """
     func randlerCookies(cookies: [HTTPCookie]){
