@@ -13,8 +13,9 @@ import LocalAuthentication
 
 class ViewController: UIViewController {
     //MARK: - VARS
+    static let bunkerAppKey = "sgXRkwFYRfk"
     static let dev =  false
-    let appURL = URL(string: "https://adm.bunkerapp.com.br/app/intro.do?key=sgXRkwFYRfk\(ViewController.dev ? "&dev=true" : "")")!
+    let appURL = URL(string: "https://adm.bunkerapp.com.br/app/intro.do?key=\(ViewController.bunkerAppKey)\(ViewController.dev ? "&dev=true" : "")")!
     //let appURL = URL(string: "https://adm.bunkerapp.com.br/app/app.do?key=c2dYUmt3RllSZmvCog==&dev=true")!
     var webView: WKWebView!
     var indicator = NVActivityIndicatorView(frame: .zero)
@@ -161,8 +162,7 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHan
             }
             
         } else if url.contains("novoMenu") && !url.contains("idL=") {
-            // Only drop the session token — keep CPF/login for dadoscompras / Face ID.
-            clear("idL")
+            // Keep idL for Face ID re-auth; menu links use APP.do `key=` as returned.
         }
         
         dump("fim")
@@ -172,13 +172,17 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHan
             let url = webView.url!.absoluteString
             if url.contains("idU=") {
                 var userID = url.substring(from: url.range(of: "idU=")!.upperBound)
-                userID = userID.replacingOccurrences(of: "&log=1", with: "")
+                if let amp = userID.firstIndex(of: "&") {
+                    userID = String(userID[..<amp])
+                }
                 userID = userID.removingPercentEncoding ?? userID
-                userID = userID.toBase64()
+                // Raw idU for menu links; Base64 only for ConsultaCli.
+                set("idU", userID)
+                let userIDBase64 = userID.toBase64()
+
+                dump("Logado\nUserID:\(userIDBase64)")
                 
-                dump("Logado\nUserID:\(userID)")
-                
-                self.randlerConsultaCli(userID: userID)
+                self.randlerConsultaCli(userID: userIDBase64)
             }
 
             if !self.isNativeHomePresented && !self.isPresentingNativeHome {
@@ -214,7 +218,12 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHan
         isNativeHomePresented = true
         isPresentingNativeHome = false
         let cpf = storedCPF()
-        let viewModel = HomeViewModel(userName: userName, cpf: cpf)
+        let viewModel = HomeViewModel(
+            userName: userName,
+            cpf: cpf,
+            idU: getString("idU"),
+            appKey: ViewController.bunkerAppKey
+        )
         viewModel.onBack = { [weak self] in
             self?.dismissNativeHome()
         }
@@ -255,6 +264,9 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHan
             if !home.viewModel.didResolveNameFromAPI {
                 home.viewModel.applyUserName(userName)
             }
+            if let idU = getString("idU") {
+                home.viewModel.idU = idU
+            }
             if let cpf = storedCPF() {
                 let hadMissingCPF = home.viewModel.cpf == nil
                 home.viewModel.cpf = cpf
@@ -289,6 +301,7 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHan
 
     func clearSessionCredentials() {
         clear("idL")
+        clear("idU")
         clear("cpf")
         clear("login")
         clear("senha")

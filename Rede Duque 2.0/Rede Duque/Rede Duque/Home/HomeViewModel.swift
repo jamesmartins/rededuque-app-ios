@@ -26,13 +26,13 @@ enum HomeMenuItem: String, CaseIterable, Identifiable {
     var novoMenuLinkKey: String? {
         switch self {
         case .vehicles: return "validacao_dados" // cadVeiculo.do
-        case .offers: return "ofertas"
-        case .profile: return "meus_dados"
-        case .statement: return "historico" // relCompras.do — confirm vs cashback
-        case .messages: return "mensagens"
-        case .addresses: return "enderecos" // regioes.do — confirm vs enderecos_duque
-        case .contact: return "fale_conosco"
-        case .friends: return "meus_amigos"
+        case .offers: return "ofertas"           // ofertas.do
+        case .profile: return "meus_dados"       // cadastro_V2.do
+        case .statement: return "historico"      // relCompras.do
+        case .messages: return "mensagens"       // historicoPush.do
+        case .addresses: return "enderecos"      // regioes.do
+        case .contact: return "fale_conosco"     // faleConosco.do
+        case .friends: return "meus_amigos"      // manutencao.do
         case .logout: return nil
         }
     }
@@ -64,6 +64,10 @@ final class HomeViewModel: ObservableObject {
     @Published var paginacao: DadosComprasPaginacao?
 
     var cpf: String?
+    /// Raw `idU` from login URL (query param on menu links).
+    var idU: String?
+    /// Bunker app client key (`key=` on menu links).
+    var appKey: String
     private(set) var menuLinks: [String: String] = [:]
     var onBack: (() -> Void)?
     var onMenuItem: ((HomeMenuItem) -> Void)?
@@ -72,6 +76,8 @@ final class HomeViewModel: ObservableObject {
     init(
         userName: String = "Cliente",
         cpf: String? = nil,
+        idU: String? = nil,
+        appKey: String = ViewController.bunkerAppKey,
         availableBalance: Decimal = 0,
         redeemedBalance: Decimal = 0,
         expiredBalance: Decimal = 0
@@ -79,6 +85,8 @@ final class HomeViewModel: ObservableObject {
         self.userName = userName
         self.firstName = Self.extractFirstName(from: userName)
         self.cpf = cpf
+        self.idU = idU
+        self.appKey = appKey
         self.availableBalance = availableBalance
         self.redeemedBalance = redeemedBalance
         self.expiredBalance = expiredBalance
@@ -171,24 +179,73 @@ final class HomeViewModel: ObservableObject {
     func loadMenuLinks() {
         AppConfigAPI.fetch { [weak self] result in
             guard let self = self else { return }
-            if case .success(let response) = result {
+            switch result {
+            case .failure(let error):
+                print("APP.do links error:", error)
+            case .success(let response):
                 self.menuLinks = response.novoMenu?.links ?? [:]
+                print("APP.do menu links loaded:", self.menuLinks.keys.sorted())
             }
         }
     }
 
     func url(for item: HomeMenuItem) -> URL? {
-        guard let key = item.novoMenuLinkKey,
-              let raw = menuLinks[key] else {
+        guard let linkKey = item.novoMenuLinkKey,
+              let raw = menuLinks[linkKey] else {
             return nil
         }
-        if let url = URL(string: raw) {
+        let built = Self.buildMenuURL(from: raw, appKey: appKey, idU: idU)
+        print("Menu URL [\(item.rawValue)] (\(linkKey)):", built)
+        if let url = URL(string: built) {
             return url
         }
-        // APP.do tokens may include non-ASCII (e.g. £).
+        // Fallback if URL still has unexpected characters.
         var allowed = CharacterSet.urlQueryAllowed
         allowed.insert(charactersIn: ":/?#[]@!$&'()*+,;=")
-        return raw.addingPercentEncoding(withAllowedCharacters: allowed).flatMap(URL.init(string:))
+        return built.addingPercentEncoding(withAllowedCharacters: allowed).flatMap(URL.init(string:))
+    }
+
+    /// Pattern: `<path>?key=<appKey>&idU=<idU>&t=<token from APP.do>`
+    static func buildMenuURL(from urlString: String, appKey: String, idU: String?) -> String {
+        let base = urlString.split(separator: "?", maxSplits: 1, omittingEmptySubsequences: false).first
+            .map(String.init) ?? urlString
+        let token = queryValue(named: "t", in: urlString)
+
+        var pairs: [(String, String)] = [
+            ("key", appKey)
+        ]
+        if let idU = idU?.trimmingCharacters(in: .whitespacesAndNewlines), !idU.isEmpty {
+            pairs.append(("idU", idU))
+        }
+        if let token = token, !token.isEmpty {
+            pairs.append(("t", token))
+        }
+
+        let query = pairs
+            .map { name, value in
+                let encoded = value.addingPercentEncoding(withAllowedCharacters: queryValueAllowed) ?? value
+                return "\(name)=\(encoded)"
+            }
+            .joined(separator: "&")
+
+        return base + "?" + query
+    }
+
+    static func queryValue(named name: String, in urlString: String) -> String? {
+        let marker = "\(name)="
+        guard let range = urlString.range(of: marker, options: .caseInsensitive) else {
+            return nil
+        }
+        let after = urlString[range.upperBound...]
+        let end = after.firstIndex(of: "&") ?? after.endIndex
+        let raw = String(after[..<end])
+        return raw.removingPercentEncoding ?? raw
+    }
+
+    private static var queryValueAllowed: CharacterSet {
+        var allowed = CharacterSet.alphanumerics
+        allowed.insert(charactersIn: "-._~")
+        return allowed
     }
 
     func openMenuItem(_ item: HomeMenuItem) {
