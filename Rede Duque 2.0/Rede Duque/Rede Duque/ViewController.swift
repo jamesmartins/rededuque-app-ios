@@ -246,10 +246,9 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHan
 
     func presentMenuWebView(url: URL, title: String) {
         let web = MenuWebViewController(url: url, title: title)
-        let nav = UINavigationController(rootViewController: web)
-        nav.modalPresentationStyle = .fullScreen
+        web.modalPresentationStyle = .fullScreen
         let presenter = presentedViewController ?? self
-        presenter.present(nav, animated: true)
+        presenter.present(web, animated: true)
     }
 
     func dismissNativeHome() {
