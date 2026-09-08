@@ -27,6 +27,10 @@
 		47FEEAE0294F472E001F5E6F /* ConsultaCli.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FEEADF294F472E001F5E6F /* ConsultaCli.swift */; };
 		B2C3D4E501A0B20000000003 /* DadosCompras.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3D4E501A0B20000000001 /* DadosCompras.swift */; };
 		B2C3D4E501A0B20000000004 /* DadosComprasAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3D4E501A0B20000000002 /* DadosComprasAPI.swift */; };
+		C4D5E6F701A0D40000000005 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D5E6F701A0D40000000001 /* AppConfig.swift */; };
+		C4D5E6F701A0D40000000006 /* AppConfigAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D5E6F701A0D40000000002 /* AppConfigAPI.swift */; };
+		C4D5E6F701A0D40000000007 /* AppSecrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D5E6F701A0D40000000003 /* AppSecrets.swift */; };
+		C4D5E6F701A0D40000000008 /* MenuWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D5E6F701A0D40000000004 /* MenuWebViewController.swift */; };
 		47FEEAE2294F47C0001F5E6F /* TokenOneSignal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FEEAE1294F47C0001F5E6F /* TokenOneSignal.swift */; };
 		9DDB983D29C8E91051D6D37F /* OneSignalFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 0F30CCD123CFF8ABCAFB55FD /* OneSignalFramework */; };
 /* End PBXBuildFile section */
@@ -78,6 +82,10 @@
 		47FEEADF294F472E001F5E6F /* ConsultaCli.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultaCli.swift; sourceTree = "<group>"; };
 		B2C3D4E501A0B20000000001 /* DadosCompras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DadosCompras.swift; sourceTree = "<group>"; };
 		B2C3D4E501A0B20000000002 /* DadosComprasAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DadosComprasAPI.swift; sourceTree = "<group>"; };
+		C4D5E6F701A0D40000000001 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		C4D5E6F701A0D40000000002 /* AppConfigAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfigAPI.swift; sourceTree = "<group>"; };
+		C4D5E6F701A0D40000000003 /* AppSecrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSecrets.swift; sourceTree = "<group>"; };
+		C4D5E6F701A0D40000000004 /* MenuWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuWebViewController.swift; sourceTree = "<group>"; };
 		47FEEAE1294F47C0001F5E6F /* TokenOneSignal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenOneSignal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,6 +174,7 @@
 				A1B2C3D401A0A10000000004 /* HomeView.swift */,
 				A1B2C3D401A0A10000000005 /* HomeViewModel.swift */,
 				A1B2C3D401A0A10000000006 /* HomeViewController.swift */,
+				C4D5E6F701A0D40000000004 /* MenuWebViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -176,6 +185,7 @@
 				47FEEAE1294F47C0001F5E6F /* TokenOneSignal.swift */,
 				47FEEADF294F472E001F5E6F /* ConsultaCli.swift */,
 				B2C3D4E501A0B20000000001 /* DadosCompras.swift */,
+				C4D5E6F701A0D40000000001 /* AppConfig.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -185,6 +195,8 @@
 			children = (
 				47FEEADA294F3E43001F5E6F /* Service.swift */,
 				B2C3D4E501A0B20000000002 /* DadosComprasAPI.swift */,
+				C4D5E6F701A0D40000000002 /* AppConfigAPI.swift */,
+				C4D5E6F701A0D40000000003 /* AppSecrets.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -326,6 +338,10 @@
 				47FEEADB294F3E43001F5E6F /* Service.swift in Sources */,
 				B2C3D4E501A0B20000000004 /* DadosComprasAPI.swift in Sources */,
 				B2C3D4E501A0B20000000003 /* DadosCompras.swift in Sources */,
+				C4D5E6F701A0D40000000005 /* AppConfig.swift in Sources */,
+				C4D5E6F701A0D40000000006 /* AppConfigAPI.swift in Sources */,
+				C4D5E6F701A0D40000000007 /* AppSecrets.swift in Sources */,
+				C4D5E6F701A0D40000000008 /* MenuWebViewController.swift in Sources */,
 				47FEEAE2294F47C0001F5E6F /* TokenOneSignal.swift in Sources */,
 				47FEEAE0294F472E001F5E6F /* ConsultaCli.swift in Sources */,
 				47E842A1289850F50060F917 /* AppDelegate.swift in Sources */,

@@ -218,21 +218,13 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHan
         viewModel.onBack = { [weak self] in
             self?.dismissNativeHome()
         }
-        viewModel.onGenerateToken = {
-            print("Home: Gerar Token")
-        }
         viewModel.onMenuItem = { [weak self] item in
             if item == .logout {
                 self?.performLogout()
-            } else {
-                print("Home menu:", item.rawValue)
             }
         }
-        viewModel.onRedeemed = {
-            print("Home: Resgatado")
-        }
-        viewModel.onExpired = {
-            print("Home: Expirado")
+        viewModel.onOpenURL = { [weak self] url, title in
+            self?.presentMenuWebView(url: url, title: title)
         }
 
         let home = HomeViewController(viewModel: viewModel)
@@ -241,6 +233,14 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHan
             self.present(home, animated: true)
             viewModel.loadHome()
         }
+    }
+
+    func presentMenuWebView(url: URL, title: String) {
+        let web = MenuWebViewController(url: url, title: title)
+        let nav = UINavigationController(rootViewController: web)
+        nav.modalPresentationStyle = .fullScreen
+        let presenter = presentedViewController ?? self
+        presenter.present(nav, animated: true)
     }
 
     func dismissNativeHome() {

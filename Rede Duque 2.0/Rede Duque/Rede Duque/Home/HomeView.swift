@@ -96,56 +96,46 @@ struct HomeView: View {
         HStack(spacing: 12) {
             summaryCard(
                 title: "Resgatado",
-                value: viewModel.formattedCurrency(viewModel.redeemedBalance),
-                action: { viewModel.onRedeemed?() }
+                value: viewModel.formattedCurrency(viewModel.redeemedBalance)
             )
             summaryCard(
                 title: "Expirado",
-                value: viewModel.formattedCurrency(viewModel.expiredBalance),
-                action: { viewModel.onExpired?() }
+                value: viewModel.formattedCurrency(viewModel.expiredBalance)
             )
         }
     }
 
-    private func summaryCard(title: String, value: String, action: @escaping () -> Void) -> some View {
-        Button(action: action) {
-            HStack {
-                VStack(alignment: .leading, spacing: 6) {
-                    Text(title)
-                        .font(.system(size: 13, weight: .regular))
-                        .foregroundColor(.white.opacity(0.9))
-                    Text(value)
-                        .font(.system(size: 18, weight: .bold))
-                        .foregroundColor(.white)
-                }
-                Spacer(minLength: 4)
-                Image(systemName: "chevron.right")
-                    .font(.system(size: 12, weight: .semibold))
-                    .foregroundColor(.white.opacity(0.85))
+    private func summaryCard(title: String, value: String) -> some View {
+        HStack {
+            VStack(alignment: .leading, spacing: 6) {
+                Text(title)
+                    .font(.system(size: 13, weight: .regular))
+                    .foregroundColor(.white.opacity(0.9))
+                Text(value)
+                    .font(.system(size: 18, weight: .bold))
+                    .foregroundColor(.white)
             }
-            .padding(.horizontal, 14)
-            .padding(.vertical, 14)
-            .background(HomeColors.brandBlueDark.opacity(0.55))
-            .cornerRadius(10)
+            Spacer(minLength: 4)
         }
-        .buttonStyle(PlainButtonStyle())
+        .padding(.horizontal, 14)
+        .padding(.vertical, 14)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(HomeColors.brandBlueDark.opacity(0.55))
+        .cornerRadius(10)
     }
 
     private var generateTokenButton: some View {
-        Button(action: { viewModel.onGenerateToken?() }) {
-            HStack(spacing: 10) {
-                Image(systemName: "qrcode")
-                    .font(.system(size: 18, weight: .semibold))
-                Text("Gerar Token")
-                    .font(.system(size: 17, weight: .bold))
-            }
-            .foregroundColor(HomeColors.tileForeground)
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 14)
-            .background(Color.white)
-            .cornerRadius(10)
+        HStack(spacing: 10) {
+            Image(systemName: "qrcode")
+                .font(.system(size: 18, weight: .semibold))
+            Text("Gerar Token")
+                .font(.system(size: 17, weight: .bold))
         }
-        .buttonStyle(PlainButtonStyle())
+        .foregroundColor(HomeColors.tileForeground)
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 14)
+        .background(Color.white)
+        .cornerRadius(10)
     }
 
     private var menuSheet: some View {
@@ -189,7 +179,7 @@ struct HomeView: View {
     }
 
     private func menuTile(_ item: HomeMenuItem) -> some View {
-        Button(action: { viewModel.onMenuItem?(item) }) {
+        Button(action: { viewModel.openMenuItem(item) }) {
             VStack(spacing: 12) {
                 Image(systemName: item.systemImage)
                     .font(.system(size: 28, weight: .regular))

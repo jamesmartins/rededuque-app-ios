@@ -22,6 +22,21 @@ enum HomeMenuItem: String, CaseIterable, Identifiable {
 
     var id: String { rawValue }
 
+    /// Key inside `novoMenu.links` from APP.do.
+    var novoMenuLinkKey: String? {
+        switch self {
+        case .vehicles: return "validacao_dados" // cadVeiculo.do
+        case .offers: return "ofertas"
+        case .profile: return "meus_dados"
+        case .statement: return "historico" // relCompras.do — confirm vs cashback
+        case .messages: return "mensagens"
+        case .addresses: return "enderecos" // regioes.do — confirm vs enderecos_duque
+        case .contact: return "fale_conosco"
+        case .friends: return "meus_amigos"
+        case .logout: return nil
+        }
+    }
+
     var systemImage: String {
         switch self {
         case .vehicles: return "car.fill"
@@ -49,11 +64,10 @@ final class HomeViewModel: ObservableObject {
     @Published var paginacao: DadosComprasPaginacao?
 
     var cpf: String?
+    private(set) var menuLinks: [String: String] = [:]
     var onBack: (() -> Void)?
-    var onGenerateToken: (() -> Void)?
     var onMenuItem: ((HomeMenuItem) -> Void)?
-    var onRedeemed: (() -> Void)?
-    var onExpired: (() -> Void)?
+    var onOpenURL: ((URL, String) -> Void)?
 
     init(
         userName: String = "Cliente",
@@ -124,6 +138,7 @@ final class HomeViewModel: ObservableObject {
 
         isLoading = true
         errorMessage = nil
+        loadMenuLinks()
 
         DadosComprasAPI.fetch(cpf: cpf, pagina: pagina) { [weak self] result in
             guard let self = self else { return }
@@ -149,6 +164,52 @@ final class HomeViewModel: ObservableObject {
                 }
                 self.compras = response.compras ?? []
                 self.paginacao = response.paginacao
+            }
+        }
+    }
+
+    func loadMenuLinks() {
+        AppConfigAPI.fetch { [weak self] result in
+            guard let self = self else { return }
+            if case .success(let response) = result {
+                self.menuLinks = response.novoMenu?.links ?? [:]
+            }
+        }
+    }
+
+    func url(for item: HomeMenuItem) -> URL? {
+        guard let key = item.novoMenuLinkKey,
+              let raw = menuLinks[key] else {
+            return nil
+        }
+        if let url = URL(string: raw) {
+            return url
+        }
+        // APP.do tokens may include non-ASCII (e.g. £).
+        var allowed = CharacterSet.urlQueryAllowed
+        allowed.insert(charactersIn: ":/?#[]@!$&'()*+,;=")
+        return raw.addingPercentEncoding(withAllowedCharacters: allowed).flatMap(URL.init(string:))
+    }
+
+    func openMenuItem(_ item: HomeMenuItem) {
+        if item == .logout {
+            onMenuItem?(item)
+            return
+        }
+        if let url = url(for: item) {
+            onOpenURL?(url, item.rawValue)
+            return
+        }
+        // Links may still be loading — refresh once and retry.
+        AppConfigAPI.fetch { [weak self] result in
+            guard let self = self else { return }
+            if case .success(let response) = result {
+                self.menuLinks = response.novoMenu?.links ?? [:]
+            }
+            if let url = self.url(for: item) {
+                self.onOpenURL?(url, item.rawValue)
+            } else {
+                self.errorMessage = "Link indisponível para \(item.rawValue)."
             }
         }
     }
