@@ -40,40 +40,16 @@ class ViewController: UIViewController {
 
     //MARK: - Setup
     func setupWebView() {
-        
-        // 1: Instantiate WKWebViewConfiguration
         let configuration = WKWebViewConfiguration()
-        // 2: Clear existing local storage if needed
-        let script = WKUserScript(
-            source: "window.localStorage.clear();",
-            injectionTime: .atDocumentStart,
+        let contentController = configuration.userContentController
+        contentController.add(self, name: "cpfCapture")
+        contentController.addUserScript(WKUserScript(
+            source: Self.cpfCaptureJavaScript,
+            injectionTime: .atDocumentEnd,
             forMainFrameOnly: true
-        )
-        configuration.userContentController.addUserScript(script)
-        
-        // 3: Create your local storage data
-        let localStorageData: [String: Any] = [
-            "login": "teste1",
-            "senha": "teste2",
-            "manter": ""
-        ]
-        // 4: Transform localStorageData to Data type and instantiate WKUserScript with that data
-        if JSONSerialization.isValidJSONObject(localStorageData),
-            let data = try? JSONSerialization.data(withJSONObject: localStorageData, options: []),
-            let value = String(data: data, encoding: .utf8) {
-            let script = WKUserScript(
-                source: "Object.assign(window.localStorage, \(value));",
-                injectionTime: .atDocumentStart,
-                forMainFrameOnly: true
-            )
-            // 5: Add created WKUserScript variable into the configuration
-            configuration.userContentController.addUserScript(script)
-        }
-        
-        webView = WKWebView(
-            frame: .zero,
-            configuration: configuration /*WKWebViewConfiguration()*/
-        )
+        ))
+
+        webView = WKWebView(frame: .zero, configuration: configuration)
         webView.uiDelegate = self
         webView.navigationDelegate = self
         webView.allowsBackForwardNavigationGestures = true
@@ -97,7 +73,14 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: WKNavigationDelegate, WKUIDelegate{
+extension ViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler {
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        guard message.name == "cpfCapture" else { return }
+        if let value = message.body as? String {
+            _ = persistCPFIfValid(value)
+        }
+    }
+
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         if !indicator.isAnimating {
             DispatchQueue.main.async {
@@ -165,7 +148,7 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate{
             dump("Logado\nidL:\(idL)")
         
             set("idL", idL)
-            //self.randlerConsultaCli(userID: userID)
+            captureAndPersistCPFFromWebView(completion: nil)
             
             let context = LAContext()
             var error : NSError?
@@ -177,34 +160,10 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate{
             }
             
         } else if url.contains("novoMenu") && !url.contains("idL=") {
-            clear("idL")
+            clearSessionCredentials()
         }
         
         dump("fim")
-        
-        /*webView.evaluateJavaScript("localStorage.getItem(\"key\")") { (value, error) in
-              print(value)
-        }*/
-        
-        /*
-        if webView.url != nil {
-            webView.getCookie { cookies in
-                self.randlerCookies(cookies: cookies)
-                
-                if (webView.url?.description ?? "").contains("novoMenu"){
-                    
-                    if cookies.count != 2 {return}
-                    let login = cookies[0]
-                    let senha = cookies[1]
-                    
-                    if login.value != "true" && senha.value != "true" {
-                        self.set("senha", senha.value)
-                        self.set("login", login.value)
-                    }
-                }
-            }
-        }
-        */
         
         if (webView.url?.description ?? "").contains("novoMenu"){
             
@@ -220,13 +179,13 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate{
                 self.randlerConsultaCli(userID: userID)
             }
 
-            // Home nativa (saldo/menu) — dados de API serão ligados depois
             if !self.isNativeHomePresented {
-                self.showNativeHome(userName: self.getString("userName") ?? "Cliente")
+                self.captureAndPersistCPFFromWebView { [weak self] in
+                    guard let self = self else { return }
+                    self.showNativeHome(userName: self.getString("userName") ?? "Cliente")
+                }
             }
             
-        } else {
-            //print("URL: " + (webView.url?.description ?? ""))
         }
     }
     
@@ -240,15 +199,20 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate{
 
     func showNativeHome(userName: String) {
         isNativeHomePresented = true
-        let viewModel = HomeViewModel(userName: userName)
+        let cpf = getString("cpf") ?? getString("login")
+        let viewModel = HomeViewModel(userName: userName, cpf: cpf)
         viewModel.onBack = { [weak self] in
             self?.dismissNativeHome()
         }
         viewModel.onGenerateToken = {
             print("Home: Gerar Token")
         }
-        viewModel.onMenuItem = { item in
-            print("Home menu:", item.rawValue)
+        viewModel.onMenuItem = { [weak self] item in
+            if item == .logout {
+                self?.performLogout()
+            } else {
+                print("Home menu:", item.rawValue)
+            }
         }
         viewModel.onRedeemed = {
             print("Home: Resgatado")
@@ -261,6 +225,7 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate{
         home.modalPresentationStyle = .fullScreen
         DispatchQueue.main.async {
             self.present(home, animated: true)
+            viewModel.loadHome()
         }
     }
 
@@ -271,9 +236,125 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate{
 
     func updateNativeHome(userName: String) {
         if let home = presentedViewController as? HomeViewController {
-            home.viewModel.userName = userName
+            home.viewModel.applyUserName(userName)
+            if let cpf = self.getString("cpf") {
+                home.viewModel.cpf = cpf
+            }
         }
-    }    
+    }
+
+    func performLogout() {
+        clearSessionCredentials()
+        isNativeHomePresented = false
+        dismiss(animated: true) { [weak self] in
+            guard let self = self else { return }
+            self.webView.load(URLRequest(url: self.appURL))
+        }
+    }
+
+    func clearSessionCredentials() {
+        clear("idL")
+        clear("cpf")
+        clear("login")
+        clear("senha")
+        clear("userName")
+    }
+
+    /// Persists CPF digits when the value looks like a Brazilian CPF (10–11 digits).
+    @discardableResult
+    func persistCPFIfValid(_ raw: String?) -> Bool {
+        guard let raw = raw else { return false }
+        let digits = raw.filter(\.isNumber)
+        guard (10...11).contains(digits.count), digits != "true" else { return false }
+        set("cpf", digits)
+        set("login", digits)
+        return true
+    }
+
+    func captureAndPersistCPFFromWebView(completion: (() -> Void)?) {
+        let group = DispatchGroup()
+
+        group.enter()
+        webView.configuration.websiteDataStore.httpCookieStore.getAllCookies { [weak self] cookies in
+            defer { group.leave() }
+            guard let self = self else { return }
+            for cookie in cookies {
+                let name = cookie.name.lowercased()
+                if name.contains("login") || name.contains("cpf") || name.contains("cgce") || name.contains("usuario") {
+                    _ = self.persistCPFIfValid(cookie.value)
+                }
+            }
+        }
+
+        group.enter()
+        let js = """
+        (function() {
+          var out = [];
+          function push(v){ if(v!=null && String(v).length) out.push(String(v)); }
+          try {
+            ['login','cpf','NUM_CGCECPF','num_cgcecpf','usuario','user','documento'].forEach(function(k){
+              push(window.localStorage.getItem(k));
+              push(window.sessionStorage.getItem(k));
+            });
+          } catch (e) {}
+          try {
+            document.querySelectorAll('input').forEach(function(el){
+              var n = ((el.name||'') + ' ' + (el.id||'') + ' ' + (el.placeholder||'')).toLowerCase();
+              if (n.indexOf('cpf') >= 0 || n.indexOf('login') >= 0 || n.indexOf('usuario') >= 0 || n.indexOf('documento') >= 0) {
+                push(el.value);
+              } else if (el.value && String(el.value).replace(/\\D/g,'').length >= 10) {
+                push(el.value);
+              }
+            });
+          } catch (e) {}
+          return out.join('|');
+        })();
+        """
+        webView.evaluateJavaScript(js) { [weak self] result, _ in
+            defer { group.leave() }
+            guard let self = self else { return }
+            if let blob = result as? String {
+                for part in blob.split(separator: "|") {
+                    if self.persistCPFIfValid(String(part)) { break }
+                }
+            }
+        }
+
+        group.notify(queue: .main) {
+            completion?()
+        }
+    }
+
+    private static let cpfCaptureJavaScript = """
+    (function() {
+      if (window.__redeDuqueCpfCaptureInstalled) { return; }
+      window.__redeDuqueCpfCaptureInstalled = true;
+      function digits(v){ return String(v||'').replace(/\\D/g,''); }
+      function send(v){
+        var d = digits(v);
+        if (d.length < 10 || d.length > 11) { return; }
+        try {
+          window.webkit.messageHandlers.cpfCapture.postMessage(d);
+        } catch (e) {}
+      }
+      function scan(){
+        try {
+          ['login','cpf','NUM_CGCECPF','num_cgcecpf','usuario','user','documento'].forEach(function(k){
+            send(window.localStorage.getItem(k));
+            send(window.sessionStorage.getItem(k));
+          });
+        } catch (e) {}
+        try {
+          document.querySelectorAll('input').forEach(function(el){ send(el.value); });
+        } catch (e) {}
+      }
+      document.addEventListener('submit', function(){ setTimeout(scan, 0); }, true);
+      document.addEventListener('change', function(e){
+        if (e && e.target) { send(e.target.value); }
+      }, true);
+      setTimeout(scan, 300);
+    })();
+    """
     func randlerCookies(cookies: [HTTPCookie]){
         
         if cookies.count != 2 {return}

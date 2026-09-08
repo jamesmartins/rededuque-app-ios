@@ -25,7 +25,13 @@ final class Service {
     var session : URLSession?
     var request : URLRequest?
     
-    func request<T: Decodable>(_ path: String, method: HttpMethod = .GET, parameters: [String: Any]? = nil,  completion: @escaping (ResultAPI<T>) -> Void) {
+    func request<T: Decodable>(
+        _ path: String,
+        method: HttpMethod = .GET,
+        parameters: [String: Any]? = nil,
+        headers: [String: String]? = nil,
+        completion: @escaping (ResultAPI<T>) -> Void
+    ) {
         
         guard let url = URL(string: path) else {
             completion(.failure(ErrorTypes.invalidURL))
@@ -40,6 +46,10 @@ final class Service {
             
             request!.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request!.httpBody = jsonData
+        }
+
+        headers?.forEach { key, value in
+            request!.setValue(value, forHTTPHeaderField: key)
         }
         
         request!.httpMethod = method.rawValue

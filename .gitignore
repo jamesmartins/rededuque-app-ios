@@ -1,0 +1,7 @@
+# Secrets / credentials
+**/Secrets.plist
+Rede Duque 2.0/Rede Duque/Rede Duque/Secrets.plist
+
+# Local build artifacts
+.derivedData-home/
+.derivedData-ios15/

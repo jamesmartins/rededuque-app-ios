@@ -14,16 +14,19 @@
 		476873782950A06E002228FF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476873772950A06E002228FF /* Extensions.swift */; };
 		479F73E42941269D00A2EC50 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 479F73E32941269D00A2EC50 /* FirebaseAnalytics */; };
 		479F73EC294127FA00A2EC50 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 479F73EB294127F900A2EC50 /* GoogleService-Info.plist */; };
+		C3D4E5F601A0C30000000003 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3D4E5F601A0C30000000001 /* Secrets.plist */; };
 		47E842A1289850F50060F917 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E842A0289850F50060F917 /* AppDelegate.swift */; };
 		47E842A3289850F50060F917 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E842A2289850F50060F917 /* SceneDelegate.swift */; };
 		47E842A5289850F50060F917 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E842A4289850F50060F917 /* ViewController.swift */; };
-		A1B2C3D401HOME0000000001 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D401HOME0000000004 /* HomeView.swift */; };
-		A1B2C3D401HOME0000000002 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D401HOME0000000005 /* HomeViewModel.swift */; };
-		A1B2C3D401HOME0000000003 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D401HOME0000000006 /* HomeViewController.swift */; };
+		A1B2C3D401A0A10000000001 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D401A0A10000000004 /* HomeView.swift */; };
+		A1B2C3D401A0A10000000002 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D401A0A10000000005 /* HomeViewModel.swift */; };
+		A1B2C3D401A0A10000000003 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D401A0A10000000006 /* HomeViewController.swift */; };
 		47E842AA289850F60060F917 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47E842A9289850F60060F917 /* Assets.xcassets */; };
 		47E842AD289850F60060F917 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47E842AB289850F60060F917 /* LaunchScreen.storyboard */; };
 		47FEEADB294F3E43001F5E6F /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FEEADA294F3E43001F5E6F /* Service.swift */; };
 		47FEEAE0294F472E001F5E6F /* ConsultaCli.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FEEADF294F472E001F5E6F /* ConsultaCli.swift */; };
+		B2C3D4E501A0B20000000003 /* DadosCompras.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3D4E501A0B20000000001 /* DadosCompras.swift */; };
+		B2C3D4E501A0B20000000004 /* DadosComprasAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3D4E501A0B20000000002 /* DadosComprasAPI.swift */; };
 		47FEEAE2294F47C0001F5E6F /* TokenOneSignal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FEEAE1294F47C0001F5E6F /* TokenOneSignal.swift */; };
 		9DDB983D29C8E91051D6D37F /* OneSignalFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 0F30CCD123CFF8ABCAFB55FD /* OneSignalFramework */; };
 /* End PBXBuildFile section */
@@ -58,19 +61,23 @@
 		47511270294CAE7500EEA2CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		476873772950A06E002228FF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		479F73EB294127F900A2EC50 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C3D4E5F601A0C30000000001 /* Secrets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
+		C3D4E5F601A0C30000000002 /* Secrets.example.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Secrets.example.plist; sourceTree = "<group>"; };
 		479F73ED2941292F00A2EC50 /* Rede Duque.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Rede Duque.entitlements"; sourceTree = "<group>"; };
 		47E8429D289850F50060F917 /* Rede Duque.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rede Duque.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		47E842A0289850F50060F917 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47E842A2289850F50060F917 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		47E842A4289850F50060F917 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A1B2C3D401HOME0000000004 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		A1B2C3D401HOME0000000005 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		A1B2C3D401HOME0000000006 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A1B2C3D401A0A10000000004 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A1B2C3D401A0A10000000005 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		A1B2C3D401A0A10000000006 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		47E842A9289850F60060F917 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47E842AC289850F60060F917 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		47E842AE289850F60060F917 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47FEEADA294F3E43001F5E6F /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		47FEEADF294F472E001F5E6F /* ConsultaCli.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultaCli.swift; sourceTree = "<group>"; };
+		B2C3D4E501A0B20000000001 /* DadosCompras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DadosCompras.swift; sourceTree = "<group>"; };
+		B2C3D4E501A0B20000000002 /* DadosComprasAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DadosComprasAPI.swift; sourceTree = "<group>"; };
 		47FEEAE1294F47C0001F5E6F /* TokenOneSignal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenOneSignal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,24 +146,26 @@
 				47E842A0289850F50060F917 /* AppDelegate.swift */,
 				47E842A2289850F50060F917 /* SceneDelegate.swift */,
 				47E842A4289850F50060F917 /* ViewController.swift */,
-				A1B2C3D401HOME0000000007 /* Home */,
+				A1B2C3D401A0A10000000007 /* Home */,
 				47FEEAE4294F480E001F5E6F /* Service */,
 				47FEEAE3294F4802001F5E6F /* Models */,
 				476873792950DA3A002228FF /* Comons */,
 				47E842A9289850F60060F917 /* Assets.xcassets */,
 				47E842AB289850F60060F917 /* LaunchScreen.storyboard */,
 				479F73EB294127F900A2EC50 /* GoogleService-Info.plist */,
+				C3D4E5F601A0C30000000001 /* Secrets.plist */,
+				C3D4E5F601A0C30000000002 /* Secrets.example.plist */,
 				47E842AE289850F60060F917 /* Info.plist */,
 			);
 			path = "Rede Duque";
 			sourceTree = "<group>";
 		};
-		A1B2C3D401HOME0000000007 /* Home */ = {
+		A1B2C3D401A0A10000000007 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				A1B2C3D401HOME0000000004 /* HomeView.swift */,
-				A1B2C3D401HOME0000000005 /* HomeViewModel.swift */,
-				A1B2C3D401HOME0000000006 /* HomeViewController.swift */,
+				A1B2C3D401A0A10000000004 /* HomeView.swift */,
+				A1B2C3D401A0A10000000005 /* HomeViewModel.swift */,
+				A1B2C3D401A0A10000000006 /* HomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -166,6 +175,7 @@
 			children = (
 				47FEEAE1294F47C0001F5E6F /* TokenOneSignal.swift */,
 				47FEEADF294F472E001F5E6F /* ConsultaCli.swift */,
+				B2C3D4E501A0B20000000001 /* DadosCompras.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -174,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				47FEEADA294F3E43001F5E6F /* Service.swift */,
+				B2C3D4E501A0B20000000002 /* DadosComprasAPI.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -289,6 +300,7 @@
 				47E842AD289850F60060F917 /* LaunchScreen.storyboard in Resources */,
 				47E842AA289850F60060F917 /* Assets.xcassets in Resources */,
 				479F73EC294127FA00A2EC50 /* GoogleService-Info.plist in Resources */,
+				C3D4E5F601A0C30000000003 /* Secrets.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,10 +320,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				47E842A5289850F50060F917 /* ViewController.swift in Sources */,
-				A1B2C3D401HOME0000000001 /* HomeView.swift in Sources */,
-				A1B2C3D401HOME0000000002 /* HomeViewModel.swift in Sources */,
-				A1B2C3D401HOME0000000003 /* HomeViewController.swift in Sources */,
+				A1B2C3D401A0A10000000001 /* HomeView.swift in Sources */,
+				A1B2C3D401A0A10000000002 /* HomeViewModel.swift in Sources */,
+				A1B2C3D401A0A10000000003 /* HomeViewController.swift in Sources */,
 				47FEEADB294F3E43001F5E6F /* Service.swift in Sources */,
+				B2C3D4E501A0B20000000004 /* DadosComprasAPI.swift in Sources */,
+				B2C3D4E501A0B20000000003 /* DadosCompras.swift in Sources */,
 				47FEEAE2294F47C0001F5E6F /* TokenOneSignal.swift in Sources */,
 				47FEEAE0294F472E001F5E6F /* ConsultaCli.swift in Sources */,
 				47E842A1289850F50060F917 /* AppDelegate.swift in Sources */,

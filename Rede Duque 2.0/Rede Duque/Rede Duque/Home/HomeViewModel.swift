@@ -39,10 +39,16 @@ enum HomeMenuItem: String, CaseIterable, Identifiable {
 
 final class HomeViewModel: ObservableObject {
     @Published var userName: String
+    @Published var firstName: String
     @Published var availableBalance: Decimal
     @Published var redeemedBalance: Decimal
     @Published var expiredBalance: Decimal
+    @Published var isLoading = false
+    @Published var errorMessage: String?
+    @Published var compras: [DadosComprasMovimento] = []
+    @Published var paginacao: DadosComprasPaginacao?
 
+    var cpf: String?
     var onBack: (() -> Void)?
     var onGenerateToken: (() -> Void)?
     var onMenuItem: ((HomeMenuItem) -> Void)?
@@ -51,19 +57,34 @@ final class HomeViewModel: ObservableObject {
 
     init(
         userName: String = "Cliente",
-        availableBalance: Decimal = 500,
-        redeemedBalance: Decimal = Decimal(string: "95.99") ?? 95.99,
-        expiredBalance: Decimal = Decimal(string: "1499.31") ?? 1499.31
+        cpf: String? = nil,
+        availableBalance: Decimal = 0,
+        redeemedBalance: Decimal = 0,
+        expiredBalance: Decimal = 0
     ) {
         self.userName = userName
+        self.firstName = Self.extractFirstName(from: userName)
+        self.cpf = cpf
         self.availableBalance = availableBalance
         self.redeemedBalance = redeemedBalance
         self.expiredBalance = expiredBalance
     }
 
     var greeting: String {
-        let first = userName.split(separator: " ").first.map(String.init) ?? userName
-        return "Olá, \(first)!"
+        "Olá, \(firstName)!"
+    }
+
+    func applyUserName(_ raw: String) {
+        let trimmed = raw.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else { return }
+        userName = trimmed
+        firstName = Self.extractFirstName(from: trimmed)
+    }
+
+    static func extractFirstName(from raw: String) -> String {
+        let trimmed = raw.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else { return "Cliente" }
+        return trimmed.split(whereSeparator: { $0.isWhitespace }).first.map(String.init) ?? trimmed
     }
 
     func formattedCurrency(_ value: Decimal) -> String {
@@ -71,5 +92,46 @@ final class HomeViewModel: ObservableObject {
         formatter.numberStyle = .currency
         formatter.locale = Locale(identifier: "pt_BR")
         return formatter.string(from: value as NSDecimalNumber) ?? "R$ 0,00"
+    }
+
+    func loadHome(pagina: Int = 1) {
+        guard let cpf = cpf, !cpf.filter(\.isNumber).isEmpty else {
+            errorMessage = "CPF do cliente não encontrado para carregar o saldo."
+            return
+        }
+
+        isLoading = true
+        errorMessage = nil
+
+        DadosComprasAPI.fetch(cpf: cpf, pagina: pagina) { [weak self] result in
+            guard let self = self else { return }
+            self.isLoading = false
+
+            switch result {
+            case .failure(let error):
+                self.errorMessage = error.description
+            case .success(let response):
+                guard response.coderro == 200 else {
+                    self.errorMessage = response.msgerro
+                    return
+                }
+                if let cliente = response.cliente {
+                    let preferred = (cliente.primeiroNome ?? "")
+                        .trimmingCharacters(in: .whitespacesAndNewlines)
+                    let full = cliente.nome.trimmingCharacters(in: .whitespacesAndNewlines)
+                    self.applyUserName(preferred.isEmpty ? full : preferred)
+                    UserDefaults.standard.set(cliente.numCgcecpf, forKey: "cpf")
+                    UserDefaults.standard.set(self.firstName, forKey: "userName")
+                    self.cpf = cliente.numCgcecpf
+                }
+                if let saldo = response.saldo {
+                    self.availableBalance = Decimal(saldo.disponivel)
+                    self.redeemedBalance = Decimal(saldo.resgatado)
+                    self.expiredBalance = Decimal(saldo.expirado)
+                }
+                self.compras = response.compras ?? []
+                self.paginacao = response.paginacao
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 struct HomeView: View {
     @ObservedObject var viewModel: HomeViewModel
@@ -25,6 +26,11 @@ struct HomeView: View {
                     .padding(.bottom, 22)
 
                 menuSheet
+            }
+
+            if viewModel.isLoading {
+                Color.black.opacity(0.25).edgesIgnoringSafeArea(.all)
+                ActivityIndicator(isAnimating: .constant(true), style: .large)
             }
         }
     }
@@ -64,7 +70,7 @@ struct HomeView: View {
 
     private var balanceSection: some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text(viewModel.greeting)
+            Text("Olá, \(viewModel.firstName)!")
                 .font(.system(size: 34, weight: .bold))
                 .foregroundColor(HomeColors.accentGreen)
 
@@ -75,6 +81,13 @@ struct HomeView: View {
             Text(viewModel.formattedCurrency(viewModel.availableBalance))
                 .font(.system(size: 36, weight: .bold))
                 .foregroundColor(HomeColors.accentGreen)
+
+            if let errorMessage = viewModel.errorMessage {
+                Text(errorMessage)
+                    .font(.system(size: 12))
+                    .foregroundColor(.white.opacity(0.9))
+                    .padding(.top, 4)
+            }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
@@ -222,3 +235,17 @@ struct HomeView_Previews: PreviewProvider {
     }
 }
 #endif
+
+/// UIKit spinner wrapper for iOS 13 compatibility.
+private struct ActivityIndicator: UIViewRepresentable {
+    @Binding var isAnimating: Bool
+    let style: UIActivityIndicatorView.Style
+
+    func makeUIView(context: Context) -> UIActivityIndicatorView {
+        UIActivityIndicatorView(style: style)
+    }
+
+    func updateUIView(_ uiView: UIActivityIndicatorView, context: Context) {
+        isAnimating ? uiView.startAnimating() : uiView.stopAnimating()
+    }
+}
