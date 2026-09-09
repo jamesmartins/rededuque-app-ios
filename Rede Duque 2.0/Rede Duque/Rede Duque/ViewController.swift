@@ -227,13 +227,11 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHan
         viewModel.onBack = { [weak self] in
             self?.dismissNativeHome()
         }
-        viewModel.onMenuItem = { [weak self] item in
-            if item == .logout {
-                self?.performLogout()
-            }
-        }
         viewModel.onOpenURL = { [weak self] url, title in
             self?.presentMenuWebView(url: url, title: title)
+        }
+        viewModel.onLogout = { [weak self] url in
+            self?.performLogout(redirectURL: url)
         }
 
         let home = HomeViewController(viewModel: viewModel)
@@ -288,13 +286,15 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHan
         return nil
     }
 
-    func performLogout() {
+    func performLogout(redirectURL: URL? = nil) {
         clearSessionCredentials()
         isNativeHomePresented = false
         isPresentingNativeHome = false
+        let destination = redirectURL ?? appURL
+        print("Logout URL:", destination.absoluteString)
         dismiss(animated: true) { [weak self] in
             guard let self = self else { return }
-            self.webView.load(URLRequest(url: self.appURL))
+            self.webView.load(URLRequest(url: destination))
         }
     }
 

@@ -33,7 +33,7 @@ enum HomeMenuItem: String, CaseIterable, Identifiable {
         case .addresses: return "enderecos"      // regioes.do
         case .contact: return "fale_conosco"     // faleConosco.do
         case .friends: return "meus_amigos"      // manutencao.do
-        case .logout: return nil
+        case .logout: return "logout"            // intro.do (logout)
         }
     }
 
@@ -70,8 +70,8 @@ final class HomeViewModel: ObservableObject {
     var appKey: String
     private(set) var menuLinks: [String: String] = [:]
     var onBack: (() -> Void)?
-    var onMenuItem: ((HomeMenuItem) -> Void)?
     var onOpenURL: ((URL, String) -> Void)?
+    var onLogout: ((URL) -> Void)?
 
     init(
         userName: String = "Cliente",
@@ -250,7 +250,7 @@ final class HomeViewModel: ObservableObject {
 
     func openMenuItem(_ item: HomeMenuItem) {
         if item == .logout {
-            onMenuItem?(item)
+            openLogout()
             return
         }
         if let url = url(for: item) {
@@ -267,6 +267,24 @@ final class HomeViewModel: ObservableObject {
                 self.onOpenURL?(url, item.rawValue)
             } else {
                 self.errorMessage = "Link indisponível para \(item.rawValue)."
+            }
+        }
+    }
+
+    private func openLogout() {
+        if let url = url(for: .logout) {
+            onLogout?(url)
+            return
+        }
+        AppConfigAPI.fetch { [weak self] result in
+            guard let self = self else { return }
+            if case .success(let response) = result {
+                self.menuLinks = response.novoMenu?.links ?? [:]
+            }
+            if let url = self.url(for: .logout) {
+                self.onLogout?(url)
+            } else {
+                self.errorMessage = "Link de logout indisponível."
             }
         }
     }
