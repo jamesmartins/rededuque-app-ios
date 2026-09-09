@@ -36,7 +36,7 @@ struct HomeView: View {
     }
 
     private var header: some View {
-        HStack(alignment: .center) {
+        HStack(alignment: .center, spacing: 12) {
             if ViewController.legacyWebMenuEnabled {
                 Button(action: { viewModel.onBack?() }) {
                     Image(systemName: "chevron.left")
@@ -44,41 +44,29 @@ struct HomeView: View {
                         .foregroundColor(HomeColors.accentGreen)
                         .frame(width: 36, height: 36)
                 }
-            } else {
-                Color.clear
-                    .frame(width: 36, height: 36)
             }
 
-            Spacer()
+            Text("Olá, \(viewModel.firstName)!")
+                .font(.system(size: 28, weight: .bold))
+                .foregroundColor(HomeColors.accentGreen)
+                .lineLimit(1)
+                .minimumScaleFactor(0.7)
 
-            Text("Navegação")
-                .font(.system(size: 18, weight: .semibold))
-                .foregroundColor(.white)
+            Spacer(minLength: 8)
 
-            Spacer()
-
-            VStack(spacing: 2) {
-                Image(systemName: "arrow.triangle.2.circlepath")
-                    .font(.system(size: 18, weight: .bold))
-                    .foregroundColor(.white)
-                    .rotationEffect(.degrees(90))
-                Text("Rede Duque")
-                    .font(.system(size: 9, weight: .semibold))
-                    .foregroundColor(.white)
-            }
-            .frame(width: 56)
+            Image("logo_rede_duque")
+                .resizable()
+                .renderingMode(.original)
+                .scaledToFit()
+                .frame(height: 40)
         }
-        .padding(.horizontal, 12)
+        .padding(.horizontal, 20)
         .padding(.top, 8)
         .padding(.bottom, 4)
     }
 
     private var balanceSection: some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text("Olá, \(viewModel.firstName)!")
-                .font(.system(size: 34, weight: .bold))
-                .foregroundColor(HomeColors.accentGreen)
-
             Text("Saldo disponível")
                 .font(.system(size: 14, weight: .regular))
                 .foregroundColor(HomeColors.secondaryLabel)
