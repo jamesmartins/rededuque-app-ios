@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     //MARK: - VARS
     static let bunkerAppKey = "sgXRkwFYRfk"
     static let dev =  false
+    /// When `false`, post-login UI is native-only. Legacy WebView menu code is kept but not used.
+    static let legacyWebMenuEnabled = false
     let appURL = URL(string: "https://adm.bunkerapp.com.br/app/intro.do?key=\(ViewController.bunkerAppKey)\(ViewController.dev ? "&dev=true" : "")")!
     //let appURL = URL(string: "https://adm.bunkerapp.com.br/app/app.do?key=c2dYUmt3RllSZmvCog==&dev=true")!
     var webView: WKWebView!
@@ -225,6 +227,8 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHan
             appKey: ViewController.bunkerAppKey
         )
         viewModel.onBack = { [weak self] in
+            // Legacy: return to the old WebView menu. Disabled while native-only.
+            guard ViewController.legacyWebMenuEnabled else { return }
             self?.dismissNativeHome()
         }
         viewModel.onOpenURL = { [weak self] url, title in
@@ -236,9 +240,15 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHan
 
         let home = HomeViewController(viewModel: viewModel)
         home.modalPresentationStyle = .fullScreen
+        home.isModalInPresentation = !Self.legacyWebMenuEnabled
         DispatchQueue.main.async {
             self.present(home, animated: true)
             viewModel.loadHome()
+            if !Self.legacyWebMenuEnabled {
+                // Keep WebView for login/logout, but hide the old menu surface.
+                self.webView.isHidden = true
+                self.webView.stopLoading()
+            }
         }
     }
 
@@ -250,6 +260,8 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHan
     }
 
     func dismissNativeHome() {
+        // Legacy WebView menu return path — kept for future re-enable.
+        guard Self.legacyWebMenuEnabled else { return }
         isNativeHomePresented = false
         isPresentingNativeHome = false
         dismiss(animated: true)
@@ -292,6 +304,8 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHan
         isPresentingNativeHome = false
         let destination = redirectURL ?? appURL
         print("Logout URL:", destination.absoluteString)
+        // Show legacy WebView again for login after logout.
+        webView.isHidden = false
         dismiss(animated: true) { [weak self] in
             guard let self = self else { return }
             self.webView.load(URLRequest(url: destination))

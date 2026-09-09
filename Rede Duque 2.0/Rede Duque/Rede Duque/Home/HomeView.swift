@@ -37,10 +37,15 @@ struct HomeView: View {
 
     private var header: some View {
         HStack(alignment: .center) {
-            Button(action: { viewModel.onBack?() }) {
-                Image(systemName: "chevron.left")
-                    .font(.system(size: 20, weight: .semibold))
-                    .foregroundColor(HomeColors.accentGreen)
+            if ViewController.legacyWebMenuEnabled {
+                Button(action: { viewModel.onBack?() }) {
+                    Image(systemName: "chevron.left")
+                        .font(.system(size: 20, weight: .semibold))
+                        .foregroundColor(HomeColors.accentGreen)
+                        .frame(width: 36, height: 36)
+                }
+            } else {
+                Color.clear
                     .frame(width: 36, height: 36)
             }
 
