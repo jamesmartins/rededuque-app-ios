@@ -23,6 +23,8 @@ class ViewController: UIViewController {
     var indicator = NVActivityIndicatorView(frame: .zero)
     private var isNativeHomePresented = false
     private var isPresentingNativeHome = false
+    private var isLoggingOut = false
+    private let brandBackground = UIColor(red: 0, green: 0, blue: 0.72, alpha: 1)
     
     //MARK: - INIT
     override func loadView() {
@@ -44,6 +46,9 @@ class ViewController: UIViewController {
 
     //MARK: - Setup
     func setupWebView() {
+        let root = UIView(frame: .zero)
+        root.backgroundColor = brandBackground
+
         let configuration = WKWebViewConfiguration()
         let contentController = configuration.userContentController
         contentController.add(self, name: "cpfCapture")
@@ -57,9 +62,20 @@ class ViewController: UIViewController {
         webView.uiDelegate = self
         webView.navigationDelegate = self
         webView.allowsBackForwardNavigationGestures = true
-        webView.backgroundColor = UIColor.black
-        view = webView
-        view.backgroundColor = UIColor.black
+        webView.backgroundColor = brandBackground
+        webView.isOpaque = false
+        webView.translatesAutoresizingMaskIntoConstraints = false
+        root.addSubview(webView)
+
+        NSLayoutConstraint.activate([
+            webView.topAnchor.constraint(equalTo: root.topAnchor),
+            webView.leadingAnchor.constraint(equalTo: root.leadingAnchor),
+            webView.trailingAnchor.constraint(equalTo: root.trailingAnchor),
+            webView.bottomAnchor.constraint(equalTo: root.bottomAnchor)
+        ])
+
+        view = root
+        view.backgroundColor = brandBackground
     }
     
     func setupData() {
@@ -71,7 +87,7 @@ class ViewController: UIViewController {
         indicator = NVActivityIndicatorView(frame: indicatorFrame, type: .circleStrokeSpin)
         indicator.center = self.view.center
         indicator.color = .gray
-        self.webView.addSubview(indicator)
+        self.view.addSubview(indicator)
         //indicator.startAnimating()
         print(#function,"startAnimating")
     }
@@ -101,6 +117,17 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHan
         
         let url = webView.url!.absoluteString
         dump("URL:" + url)
+
+        // After logout, reveal WebView only when login/intro is ready (avoids legacy flash).
+        if isLoggingOut {
+            let lower = url.lowercased()
+            if lower.contains("intro.do") || (lower.contains("app.do") && !lower.contains("novomenu")) {
+                isLoggingOut = false
+                if !Self.legacyWebMenuEnabled {
+                    webView.isHidden = false
+                }
+            }
+        }
         
         if url.contains("app.do") && url.contains("idL="){
             dump("segunda passagem")
@@ -198,7 +225,21 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHan
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         DispatchQueue.main.async {
             self.indicator.stopAnimating()
+            self.revealWebViewAfterLogoutIfNeeded()
         }
+    }
+
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        DispatchQueue.main.async {
+            self.indicator.stopAnimating()
+            self.revealWebViewAfterLogoutIfNeeded()
+        }
+    }
+
+    private func revealWebViewAfterLogoutIfNeeded() {
+        guard isLoggingOut, !Self.legacyWebMenuEnabled else { return }
+        isLoggingOut = false
+        webView.isHidden = false
     }
     
     //MARK: - FUNCS
@@ -302,9 +343,18 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHan
         clearSessionCredentials()
         isNativeHomePresented = false
         isPresentingNativeHome = false
+        isLoggingOut = true
         let destination = redirectURL ?? appURL
         print("Logout URL:", destination.absoluteString)
-        // Show legacy WebView again for login after logout.
+
+        // Keep legacy WebView fully hidden during logout transition.
+        if !Self.legacyWebMenuEnabled {
+            webView.isHidden = true
+            webView.load(URLRequest(url: destination))
+            dismiss(animated: true)
+            return
+        }
+
         webView.isHidden = false
         dismiss(animated: true) { [weak self] in
             guard let self = self else { return }
