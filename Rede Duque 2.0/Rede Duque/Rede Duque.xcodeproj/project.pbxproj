@@ -14,25 +14,25 @@
 		476873782950A06E002228FF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476873772950A06E002228FF /* Extensions.swift */; };
 		479F73E42941269D00A2EC50 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 479F73E32941269D00A2EC50 /* FirebaseAnalytics */; };
 		479F73EC294127FA00A2EC50 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 479F73EB294127F900A2EC50 /* GoogleService-Info.plist */; };
-		C3D4E5F601A0C30000000003 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3D4E5F601A0C30000000001 /* Secrets.plist */; };
 		47E842A1289850F50060F917 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E842A0289850F50060F917 /* AppDelegate.swift */; };
 		47E842A3289850F50060F917 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E842A2289850F50060F917 /* SceneDelegate.swift */; };
 		47E842A5289850F50060F917 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E842A4289850F50060F917 /* ViewController.swift */; };
-		A1B2C3D401A0A10000000001 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D401A0A10000000004 /* HomeView.swift */; };
-		A1B2C3D401A0A10000000002 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D401A0A10000000005 /* HomeViewModel.swift */; };
-		A1B2C3D401A0A10000000003 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D401A0A10000000006 /* HomeViewController.swift */; };
 		47E842AA289850F60060F917 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47E842A9289850F60060F917 /* Assets.xcassets */; };
 		47E842AD289850F60060F917 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47E842AB289850F60060F917 /* LaunchScreen.storyboard */; };
 		47FEEADB294F3E43001F5E6F /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FEEADA294F3E43001F5E6F /* Service.swift */; };
 		47FEEAE0294F472E001F5E6F /* ConsultaCli.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FEEADF294F472E001F5E6F /* ConsultaCli.swift */; };
+		47FEEAE2294F47C0001F5E6F /* TokenOneSignal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FEEAE1294F47C0001F5E6F /* TokenOneSignal.swift */; };
+		9DDB983D29C8E91051D6D37F /* OneSignalFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 0F30CCD123CFF8ABCAFB55FD /* OneSignalFramework */; };
+		A1B2C3D401A0A10000000001 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D401A0A10000000004 /* HomeView.swift */; };
+		A1B2C3D401A0A10000000002 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D401A0A10000000005 /* HomeViewModel.swift */; };
+		A1B2C3D401A0A10000000003 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D401A0A10000000006 /* HomeViewController.swift */; };
 		B2C3D4E501A0B20000000003 /* DadosCompras.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3D4E501A0B20000000001 /* DadosCompras.swift */; };
 		B2C3D4E501A0B20000000004 /* DadosComprasAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3D4E501A0B20000000002 /* DadosComprasAPI.swift */; };
+		C3D4E5F601A0C30000000003 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3D4E5F601A0C30000000001 /* Secrets.plist */; };
 		C4D5E6F701A0D40000000005 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D5E6F701A0D40000000001 /* AppConfig.swift */; };
 		C4D5E6F701A0D40000000006 /* AppConfigAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D5E6F701A0D40000000002 /* AppConfigAPI.swift */; };
 		C4D5E6F701A0D40000000007 /* AppSecrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D5E6F701A0D40000000003 /* AppSecrets.swift */; };
 		C4D5E6F701A0D40000000008 /* MenuWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D5E6F701A0D40000000004 /* MenuWebViewController.swift */; };
-		47FEEAE2294F47C0001F5E6F /* TokenOneSignal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FEEAE1294F47C0001F5E6F /* TokenOneSignal.swift */; };
-		9DDB983D29C8E91051D6D37F /* OneSignalFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 0F30CCD123CFF8ABCAFB55FD /* OneSignalFramework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,28 +65,28 @@
 		47511270294CAE7500EEA2CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		476873772950A06E002228FF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		479F73EB294127F900A2EC50 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		C3D4E5F601A0C30000000001 /* Secrets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
-		C3D4E5F601A0C30000000002 /* Secrets.example.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Secrets.example.plist; sourceTree = "<group>"; };
 		479F73ED2941292F00A2EC50 /* Rede Duque.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Rede Duque.entitlements"; sourceTree = "<group>"; };
 		47E8429D289850F50060F917 /* Rede Duque.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rede Duque.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		47E842A0289850F50060F917 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47E842A2289850F50060F917 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		47E842A4289850F50060F917 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A1B2C3D401A0A10000000004 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		A1B2C3D401A0A10000000005 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		A1B2C3D401A0A10000000006 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		47E842A9289850F60060F917 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47E842AC289850F60060F917 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		47E842AE289850F60060F917 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47FEEADA294F3E43001F5E6F /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		47FEEADF294F472E001F5E6F /* ConsultaCli.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultaCli.swift; sourceTree = "<group>"; };
+		47FEEAE1294F47C0001F5E6F /* TokenOneSignal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenOneSignal.swift; sourceTree = "<group>"; };
+		A1B2C3D401A0A10000000004 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A1B2C3D401A0A10000000005 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		A1B2C3D401A0A10000000006 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B2C3D4E501A0B20000000001 /* DadosCompras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DadosCompras.swift; sourceTree = "<group>"; };
 		B2C3D4E501A0B20000000002 /* DadosComprasAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DadosComprasAPI.swift; sourceTree = "<group>"; };
+		C3D4E5F601A0C30000000001 /* Secrets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
+		C3D4E5F601A0C30000000002 /* Secrets.example.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Secrets.example.plist; sourceTree = "<group>"; };
 		C4D5E6F701A0D40000000001 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		C4D5E6F701A0D40000000002 /* AppConfigAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfigAPI.swift; sourceTree = "<group>"; };
 		C4D5E6F701A0D40000000003 /* AppSecrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSecrets.swift; sourceTree = "<group>"; };
 		C4D5E6F701A0D40000000004 /* MenuWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuWebViewController.swift; sourceTree = "<group>"; };
-		47FEEAE1294F47C0001F5E6F /* TokenOneSignal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenOneSignal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,17 +168,6 @@
 			path = "Rede Duque";
 			sourceTree = "<group>";
 		};
-		A1B2C3D401A0A10000000007 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				A1B2C3D401A0A10000000004 /* HomeView.swift */,
-				A1B2C3D401A0A10000000005 /* HomeViewModel.swift */,
-				A1B2C3D401A0A10000000006 /* HomeViewController.swift */,
-				C4D5E6F701A0D40000000004 /* MenuWebViewController.swift */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
 		47FEEAE3294F4802001F5E6F /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +195,17 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A1B2C3D401A0A10000000007 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3D401A0A10000000004 /* HomeView.swift */,
+				A1B2C3D401A0A10000000005 /* HomeViewModel.swift */,
+				A1B2C3D401A0A10000000006 /* HomeViewController.swift */,
+				C4D5E6F701A0D40000000004 /* MenuWebViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -564,7 +564,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 4.2;
+				MARKETING_VERSION = 5.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -599,7 +599,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 4.2;
+				MARKETING_VERSION = 5.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

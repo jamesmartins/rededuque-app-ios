@@ -9,6 +9,16 @@ enum HomeColors {
     static let secondaryLabel = Color.white.opacity(0.75)
 }
 
+enum HardcodedMenuLinks {
+    /// Not returned by APP.do — path + `t` fixed; `key`/`idU` injected at runtime.
+    static let tokenBase = "https://adm.bunkerapp.com.br/app/tipoToken.do"
+    static let tokenT = "SoLQBg0IJuLz78WQcIhp£FqskczAVVwLK"
+
+    static let friendsBase = "https://adm.bunkerapp.com.br/app/amigos.do"
+    static let friendsT = "SoLQBg0IJuLz78WQcIhp£FqskczAVVwLK"
+    static let friendsIdp = "8Pt6JcYB9Gg¢"
+}
+
 enum HomeMenuItem: String, CaseIterable, Identifiable {
     case vehicles = "Meus Veículos"
     case offers = "Minhas Ofertas"
@@ -32,7 +42,7 @@ enum HomeMenuItem: String, CaseIterable, Identifiable {
         case .messages: return "mensagens"       // historicoPush.do
         case .addresses: return "enderecos"      // regioes.do
         case .contact: return "fale_conosco"     // faleConosco.do
-        case .friends: return "meus_amigos"      // manutencao.do
+        case .friends: return nil                // hardcoded amigos.do (not in APP.do)
         case .logout: return "logout"            // intro.do (logout)
         }
     }
@@ -190,34 +200,81 @@ final class HomeViewModel: ObservableObject {
     }
 
     func url(for item: HomeMenuItem) -> URL? {
+        if item == .friends {
+            return finalizeMenuURL(
+                Self.buildMenuURL(
+                    base: HardcodedMenuLinks.friendsBase,
+                    appKey: appKey,
+                    idU: idU,
+                    token: HardcodedMenuLinks.friendsT,
+                    extra: [("idp", HardcodedMenuLinks.friendsIdp)]
+                ),
+                label: item.rawValue,
+                linkKey: "hardcoded:amigos"
+            )
+        }
+
         guard let linkKey = item.novoMenuLinkKey,
               let raw = menuLinks[linkKey] else {
             return nil
         }
         let built = Self.buildMenuURL(from: raw, appKey: appKey, idU: idU)
-        print("Menu URL [\(item.rawValue)] (\(linkKey)):", built)
+        return finalizeMenuURL(built, label: item.rawValue, linkKey: linkKey)
+    }
+
+    func openGenerateToken() {
+        let built = Self.buildMenuURL(
+            base: HardcodedMenuLinks.tokenBase,
+            appKey: appKey,
+            idU: idU,
+            token: HardcodedMenuLinks.tokenT
+        )
+        guard let url = finalizeMenuURL(built, label: "Gerar Token", linkKey: "hardcoded:tipoToken") else {
+            errorMessage = "Link indisponível para Gerar Token."
+            return
+        }
+        onOpenURL?(url, "Gerar Token")
+    }
+
+    private func finalizeMenuURL(_ built: String, label: String, linkKey: String) -> URL? {
+        print("Menu URL [\(label)] (\(linkKey)):", built)
         if let url = URL(string: built) {
             return url
         }
-        // Fallback if URL still has unexpected characters.
         var allowed = CharacterSet.urlQueryAllowed
         allowed.insert(charactersIn: ":/?#[]@!$&'()*+,;=")
         return built.addingPercentEncoding(withAllowedCharacters: allowed).flatMap(URL.init(string:))
     }
 
-    /// Pattern: `<path>?key=<appKey>&idU=<idU>&t=<token from APP.do>`
+    /// Pattern from APP.do link: keep path + `t`, inject `key`/`idU`.
     static func buildMenuURL(from urlString: String, appKey: String, idU: String?) -> String {
         let base = urlString.split(separator: "?", maxSplits: 1, omittingEmptySubsequences: false).first
             .map(String.init) ?? urlString
         let token = queryValue(named: "t", in: urlString)
+        return buildMenuURL(base: base, appKey: appKey, idU: idU, token: token)
+    }
 
+    /// Pattern: `<path>?key=<appKey>&idU=<idU>&[extra]&t=<token>`
+    static func buildMenuURL(
+        base: String,
+        appKey: String,
+        idU: String?,
+        token: String?,
+        extra: [(String, String)] = []
+    ) -> String {
         var pairs: [(String, String)] = [
             ("key", appKey)
         ]
         if let idU = idU?.trimmingCharacters(in: .whitespacesAndNewlines), !idU.isEmpty {
             pairs.append(("idU", idU))
         }
-        if let token = token, !token.isEmpty {
+        for (name, value) in extra {
+            let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
+            if !trimmed.isEmpty {
+                pairs.append((name, trimmed))
+            }
+        }
+        if let token = token?.trimmingCharacters(in: .whitespacesAndNewlines), !token.isEmpty {
             pairs.append(("t", token))
         }
 
@@ -251,6 +308,14 @@ final class HomeViewModel: ObservableObject {
     func openMenuItem(_ item: HomeMenuItem) {
         if item == .logout {
             openLogout()
+            return
+        }
+        if item == .friends {
+            if let url = url(for: item) {
+                onOpenURL?(url, item.rawValue)
+            } else {
+                errorMessage = "Link indisponível para \(item.rawValue)."
+            }
             return
         }
         if let url = url(for: item) {

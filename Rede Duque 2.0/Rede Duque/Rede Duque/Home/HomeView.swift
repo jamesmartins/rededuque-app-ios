@@ -118,17 +118,20 @@ struct HomeView: View {
     }
 
     private var generateTokenButton: some View {
-        HStack(spacing: 10) {
-            Image(systemName: "qrcode")
-                .font(.system(size: 18, weight: .semibold))
-            Text("Gerar Token")
-                .font(.system(size: 17, weight: .bold))
+        Button(action: { viewModel.openGenerateToken() }) {
+            HStack(spacing: 10) {
+                Image(systemName: "qrcode")
+                    .font(.system(size: 18, weight: .semibold))
+                Text("Gerar Token")
+                    .font(.system(size: 17, weight: .bold))
+            }
+            .foregroundColor(HomeColors.tileForeground)
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 14)
+            .background(Color.white)
+            .cornerRadius(10)
         }
-        .foregroundColor(HomeColors.tileForeground)
-        .frame(maxWidth: .infinity)
-        .padding(.vertical, 14)
-        .background(Color.white)
-        .cornerRadius(10)
+        .buttonStyle(PlainButtonStyle())
     }
 
     private var menuSheet: some View {
